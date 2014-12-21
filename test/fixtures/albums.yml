@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 
+  name: MyString
+  band: MyString
+  image: MyString
+  position1: 1
+  position2: 1
+  position3: 1
+  position4: 1
+  position5: 1
+  totalPositions: 1
+
+two:
+  id: 
+  name: MyString
+  band: MyString
+  image: MyString
+  position1: 1
+  position2: 1
+  position3: 1
+  position4: 1
+  position5: 1
+  totalPositions: 1
