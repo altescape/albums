@@ -1,0 +1,57 @@
+<%= form_for(@album) do |f| %>
+  <% if @album.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@album.errors.count, "error") %> prohibited this album from being saved:</h2>
+
+      <ul>
+      <% @album.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id %><br>
+    <%= f.text_field :id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :band %><br>
+    <%= f.text_field :band %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.text_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :position1 %><br>
+    <%= f.number_field :position1 %>
+  </div>
+  <div class="field">
+    <%= f.label :position2 %><br>
+    <%= f.number_field :position2 %>
+  </div>
+  <div class="field">
+    <%= f.label :position3 %><br>
+    <%= f.number_field :position3 %>
+  </div>
+  <div class="field">
+    <%= f.label :position4 %><br>
+    <%= f.number_field :position4 %>
+  </div>
+  <div class="field">
+    <%= f.label :position5 %><br>
+    <%= f.number_field :position5 %>
+  </div>
+  <div class="field">
+    <%= f.label :totalPositions %><br>
+    <%= f.number_field :totalPositions %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

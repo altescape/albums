@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @album_collection.id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @album_collection.name %>
+</p>
+
+<p>
+  <strong>Albums:</strong>
+  <%= @album_collection.albums %>
+</p>
+
+<%= link_to 'Edit', edit_album_collection_path(@album_collection) %> |
+<%= link_to 'Back', album_collections_path %>
