@@ -23,7 +23,9 @@ default: &default
 
 development:
   <<: *default
-  database: albums_development
+  database: <%= ENV['ALBUMS_DATABASE_NAME'] %>
+  username: <%= ENV['ALBUMS_DATABASE_USERNAME'] %>
+  password: <%= ENV['ALBUMS_DATABASE_PASSWORD'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -80,6 +82,6 @@ test:
 #
 production:
   <<: *default
-  database: albums_production
-  username: michaelwatts
-  password: <%= ENV['ALBUMS_DATABASE_PASSWORD'] %>
+  database: <%= ENV['PRODUCTION_ALBUMS_DATABASE_NAME'] %>
+  username: <%= ENV['PRODUCTION_ALBUMS_DATABASE_USERNAME'] %>
+  password: <%= ENV['PRODUCTION_ALBUMS_DATABASE_PASSWORD'] %>
