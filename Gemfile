@@ -42,5 +42,7 @@ gem 'bcrypt', '3.1.9'
 
 gem 'rails_12factor', '0.0.3', group: :production
 
+gem 'unicorn',        '4.8.3', group: :production
+
 ruby '2.1.5'
 
