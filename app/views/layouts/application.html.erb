@@ -2,13 +2,30 @@
 <html>
 <head>
   <title>Albums</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= yield :body_class %>">
+
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        Top 5 Albums
+      </a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/sign-in">Sign in</a></li>
+      <li><%= link_to 'Register', new_user_path %></li>
+      <li><a href="/users">Users</a></li>
+    </ul>
+  </div>
+</nav>
 
 <%= yield %>
+
+<%= debug(params) if Rails.env.development? %>
 
 </body>
 </html>

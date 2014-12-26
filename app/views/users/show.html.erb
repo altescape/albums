@@ -1,34 +1,39 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<p>
-  <strong>Id:</strong>
-  <%= @user.id %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+  <% provide(:title, @user.name) %>
+  <h1>
+    <%= gravatar_for @user %>
+    <%= @user.name %>
+  </h1>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @user.image %>
-</p>
+  <p>
+    <strong>Id:</strong>
+    <%= @user.id %>
+  </p>
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @user.name %>
+  </p>
 
-<p>
-  <strong>Albumcollectionid:</strong>
-  <%= @user.albumCollectionId %>
-</p>
+  <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <p>
+    <strong>Password:</strong>
+    <%= @user.password %>
+  </p>
+
+  <p>
+    <strong>Albumcollectionid:</strong>
+    <%= @user.albumCollectionId %>
+  </p>
+
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Back', users_path %>
+</div>

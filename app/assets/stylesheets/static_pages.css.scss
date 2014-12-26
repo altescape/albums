@@ -1,0 +1,97 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html, body, .wrap {
+  height: 100%;
+}
+
+body {
+  background-color: whitesmoke;
+}
+body.title-screen {
+  background-color: #5ca523;
+}
+
+.container {
+  display: block;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.box {
+  width: 100%;
+  height: 100%;
+  display: table;
+  vertical-align: middle;
+  padding-bottom: 65px;
+  table-layout: fixed;
+  .single-column {
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+// HOME
+
+.brand {
+  $brand-colour: #5ca523;
+  font-size: 100px;
+  color: $brand-colour;
+  font-weight: bold;
+  width: 150px;
+  height: 210px;
+  margin: 70px auto 30px;
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 150px;
+    background-color: #ffffff;
+    position: absolute;
+    z-index: -1;
+    transform: rotate(45deg);
+    top: -15px;
+    left: 0;
+  }
+
+  span {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    right: 0;
+  }
+
+  span:nth-child(1) {
+    font-size: 32px;
+    top: 4px;
+  }
+  span:nth-child(2) {
+    top: 22px;
+  }
+  span:nth-child(3) {
+    font-size: 32px;
+    color: #ffffff;
+    bottom: 0;
+    top: auto;
+  }
+
+  &.inverse {
+    color: white;
+
+    &:before {
+      background-color: $brand-colour;
+    }
+
+    span:nth-child(3) {
+      color: $brand-colour;
+    }
+  }
+
+  &.small {zoom: .5}
+}

@@ -1,6 +1,19 @@
-<h1>Editing user</h1>
+<% provide(:body_class, 'edit-user') %>
 
-<%= render 'form' %>
+<div class="container">
+  <div class="box">
+    <div class="single-column text-center">
+      <h1 class="brand inverse small"><span>TOP</span> <span>5</span> <span>ALBUMS</span></h1>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+      <h2 class="form-signin-heading">Edit account</h2>
+
+      <%= render 'form' %>
+
+      <p class="text-center"><%= link_to 'Show', @user %> | <%= link_to 'Back', users_path %></p>
+
+      <p class="text-muted text-center h4" style="margin-top: 3em">Already Registered?</p>
+
+      <p class="text-center h4"><a href="/sign-in">Sign In Here</a>.</p>
+    </div>
+  </div>
+</div>

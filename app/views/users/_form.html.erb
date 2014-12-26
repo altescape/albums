@@ -1,41 +1,25 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<%= form_for @user, :html => {:class => "form-register"} do |f| %>
+    <% if @user.errors.any? %>
+        <div id="error_explanation" class="panel panel-danger">
+          <div class="panel-body">
+            <h5 class="text-danger"><%= pluralize(@user.errors.count, "error") %> prevented you from creating an account.</h5>
+            <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    <% end %>
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :id %><br>
-    <%= f.text_field :id %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.text_field :image %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.text_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :albumCollectionId %><br>
-    <%= f.number_field :albumCollectionId %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.label :name, class: "sr-only" %>
+    <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+
+    <%= f.label :email, class: "sr-only" %>
+    <%= f.text_field :email, class: "form-control", placeholder: "Email", type: "email" %>
+
+    <%= f.label :password, class: "sr-only" %>
+    <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+    <%= f.submit "Submit", class: "btn btn-lg btn-primary btn-block" %>
 <% end %>
