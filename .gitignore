@@ -17,8 +17,5 @@
 
 #ignore rubymine
 /.idea
-<<<<<<< HEAD
 
 .env
-=======
->>>>>>> modeling-users-exercises
