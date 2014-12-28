@@ -40,6 +40,8 @@ gem 'bcrypt', '3.1.9'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'rdio_api', '0.1.1'
+
 gem 'rails_12factor', '0.0.3', group: :production
 
 gem 'unicorn',        '4.8.3', group: :production

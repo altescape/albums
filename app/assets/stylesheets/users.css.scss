@@ -64,3 +64,15 @@
     border-top-left-radius: 0;
   }
 }
+
+.navbar-nav {
+  .header-gravatar {
+    a {
+      padding: 0;
+      line-height: 0;
+    }
+  }
+  .gravatar {
+    max-width: 50px;
+  }
+}

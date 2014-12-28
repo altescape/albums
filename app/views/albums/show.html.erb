@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Id:</strong>
-  <%= @album.id %>
-</p>
-
-<p>
   <strong>Name:</strong>
   <%= @album.name %>
 </p>
@@ -21,33 +16,8 @@
 </p>
 
 <p>
-  <strong>Position1:</strong>
-  <%= @album.position1 %>
-</p>
-
-<p>
-  <strong>Position2:</strong>
-  <%= @album.position2 %>
-</p>
-
-<p>
-  <strong>Position3:</strong>
-  <%= @album.position3 %>
-</p>
-
-<p>
-  <strong>Position4:</strong>
-  <%= @album.position4 %>
-</p>
-
-<p>
-  <strong>Position5:</strong>
-  <%= @album.position5 %>
-</p>
-
-<p>
-  <strong>Totalpositions:</strong>
-  <%= @album.totalPositions %>
+  <strong>Position:</strong>
+  <%= @album.position %>
 </p>
 
 <%= link_to 'Edit', edit_album_path(@album) %> |

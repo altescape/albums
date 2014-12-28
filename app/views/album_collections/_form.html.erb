@@ -1,29 +1,29 @@
-<%= form_for(@album_collection) do |f| %>
-  <% if @album_collection.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@album_collection.errors.count, "error") %> prohibited this album_collection from being saved:</h2>
+<%= form_for @album_collection, :html => {:class => "form-album"} do |f| %>
+    <% if @album_collection.errors.any? %>
+        <div id="error_explanation" class="panel panel-danger">
+          <div class="panel-body">
+            <h5 class="text-danger"><%= pluralize(@album_collection.errors.count, "error") %> prohibited this
+              album_collection from being
+              saved:</h5>
 
-      <ul>
-      <% @album_collection.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+            <ul>
+              <% @album_collection.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :id %><br>
-    <%= f.text_field :id %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :albums %><br>
-    <%= f.text_field :albums %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.label :id, class: "sr-only" %>
+    <%= f.text_field :id, class: "form-control", placeholder: "ID" %>
+
+    <%= f.label :name, class: "sr-only" %>
+    <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+
+    <%= f.label :albums, class: "sr-only" %>
+    <%= f.text_field :albums, class: "form-control", placeholder: "Albums" %>
+
+    <%= f.submit "Add", class: "btn btn-lg btn-primary btn-block" %>
+
 <% end %>

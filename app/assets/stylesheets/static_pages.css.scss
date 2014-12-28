@@ -11,6 +11,8 @@ body {
 }
 body.title-screen {
   background-color: #5ca523;
+
+  .navbar-static-top {display: none;}
 }
 
 .container {

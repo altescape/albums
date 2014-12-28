@@ -1,5 +1,15 @@
-<h1>New album_collection</h1>
+<% provide(:body_class, 'album-collection') %>
 
-<%= render 'form' %>
+<div class="container">
+  <div class="box">
+    <div class="single-column text-center">
+      <h1 class="brand inverse small"><span>TOP</span> <span>5</span> <span>ALBUMS</span></h1>
 
-<%= link_to 'Back', album_collections_path %>
+      <h2 class="form-signin-heading">Create an Album Collection</h2>
+
+      <%= render 'form' %>
+
+      <p class="text-center h4"><%= link_to 'Back', album_collections_path %></p>
+    </div>
+  </div>
+</div>

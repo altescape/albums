@@ -11,14 +11,17 @@
 <nav class="navbar navbar-default navbar-static-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">
-        Top 5 Albums
-      </a>
+      <%= link_to "Top 5 Albums", root_path, class: "navbar-brand" %>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="/sign-in">Sign in</a></li>
-      <li><%= link_to 'Register', new_user_path %></li>
-      <li><a href="/users">Users</a></li>
+      <% if logged_in? %>
+          <li><%= link_to "Log out", logout_path %></li>
+          <li><%= link_to "Profile", current_user %></li>
+          <li class="header-gravatar"><%= link_to current_user do gravatar_for current_user end %></li>
+      <% else %>
+          <li><%= link_to 'Register', new_user_path %></li>
+          <li><%= link_to "Log in", login_path %></li>
+      <% end %>
     </ul>
   </div>
 </nav>
