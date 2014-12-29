@@ -1,5 +1,36 @@
 <h1>Listing albums</h1>
 
+<form class="form-horizontal" action="" method="get" name="search">
+  <div class="form-group">
+    <label for="inputSearch" class="col-sm-2 control-label">Search</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="inputSearch" placeholder="Search for album" name="s">
+    </div>
+    <div class="col-sm-2">
+      <button type="submit" class="btn btn-primary btn-block">Search</button>
+    </div>
+  </div>
+</form>
+
+<h2><%= rdio_connect.count %> results found</h2>
+
+<hr>
+
+<div class="container">
+    <div class="row">
+    <% rdio_connect.each do |result| %>
+      <div class=" col-sm-3" title="<%= result.name %>">
+        <div class="thumbnail">
+          <img src="<%= result.icon %>" alt="Album cover for <%= result.name %>">
+          <div class="caption">
+            <small><%= result.name[0..15] %></small>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+</div>
+
 <table>
   <thead>
     <tr>

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'static_pages/help'
 
   resources :albums
+  get 'search' => 'albums#search'
 
   resources :album_collections
 
