@@ -7,7 +7,7 @@ module AlbumsHelper
       search_term = params[:s]
     end
 
-    @@client.search(:query => search_term, :types => "album", :extras => "-*, icon,artist,name").results
+    @@client.search(:query => search_term, :types => "album", :count => 12, :extras => "-*, icon,artist,name").results
   end
 
   def rdio_format

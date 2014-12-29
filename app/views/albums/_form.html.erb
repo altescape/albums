@@ -13,19 +13,19 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, value: params[:n] %>
   </div>
   <div class="field">
     <%= f.label :band %><br>
-    <%= f.text_field :band %>
+    <%= f.text_field :band, value: params[:a] %>
   </div>
   <div class="field">
     <%= f.label :image %><br>
-    <%= f.text_field :image %>
+    <%= f.text_field :image, value: params[:i] %>
   </div>
   <div class="field">
     <%= f.label :position %><br>
-    <%= f.number_field :position %>
+    <%= f.number_field :position, value: params[:p] %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,62 +1,71 @@
-<h1>Listing albums</h1>
-
-<form class="form-horizontal" action="" method="get" name="search">
-  <div class="form-group">
-    <label for="inputSearch" class="col-sm-2 control-label">Search</label>
-    <div class="col-sm-8">
-      <input type="text" class="form-control" id="inputSearch" placeholder="Search for album" name="s">
-    </div>
-    <div class="col-sm-2">
-      <button type="submit" class="btn btn-primary btn-block">Search</button>
-    </div>
-  </div>
-</form>
-
-<h2><%= rdio_connect.count %> results found</h2>
-
-<hr>
-
 <div class="container">
-    <div class="row">
-    <% rdio_connect.each do |result| %>
-      <div class=" col-sm-3" title="<%= result.name %>">
-        <div class="thumbnail">
-          <img src="<%= result.icon %>" alt="Album cover for <%= result.name %>">
-          <div class="caption">
-            <small><%= result.name[0..15] %></small>
+  <div class="box">
+    <div class="text-center">
+
+      <h1>Search for albums</h1>
+
+      <form class="form-horizontal" action="" method="get" name="search">
+        <div class="form-group">
+          <label for="inputSearch" class="col-sm-2 control-label">Search</label>
+
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="inputSearch" placeholder="Search for album" name="s">
+          </div>
+          <div class="col-sm-2">
+            <button type="submit" class="btn btn-primary btn-block">Search</button>
           </div>
         </div>
+      </form>
+
+      <h2><%= rdio_connect.count %> results found</h2>
+
+      <hr>
+
+      <div class="row">
+        <% rdio_connect.each do |result| %>
+            <div class=" col-sm-3" title="<%= result.name %>">
+              <div class="thumbnail">
+                <img src="<%= result.icon %>" alt="Album cover for <%= result.name %>">
+
+                <div class="caption">
+                  <p><small><%= result.name[0..15] %></small></p>
+                  <p><a href="/albums/new?n=<%= u result.name %>&i=<%= u result.icon %>&a=<%= u result.artist %>&p=1" class="btn btn-primary btn-block btn-sm">SELECT</a></p>
+                </div>
+              </div>
+            </div>
+        <% end %>
       </div>
-    <% end %>
+
+      <table>
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Band</th>
+          <th>Image</th>
+          <th>Position</th>
+          <th colspan="3"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @albums.each do |album| %>
+            <tr>
+              <td><%= album.name %></td>
+              <td><%= album.band %></td>
+              <td><%= album.image %></td>
+              <td><%= album.position %></td>
+              <td><%= link_to 'Show', album %></td>
+              <td><%= link_to 'Edit', edit_album_path(album) %></td>
+              <td><%= link_to 'Destroy', album, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+      <br>
+
+      <%= link_to 'New Album', new_album_path %>
+
     </div>
+  </div>
 </div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Band</th>
-      <th>Image</th>
-      <th>Position</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @albums.each do |album| %>
-      <tr>
-        <td><%= album.name %></td>
-        <td><%= album.band %></td>
-        <td><%= album.image %></td>
-        <td><%= album.position %></td>
-        <td><%= link_to 'Show', album %></td>
-        <td><%= link_to 'Edit', edit_album_path(album) %></td>
-        <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Album', new_album_path %>
