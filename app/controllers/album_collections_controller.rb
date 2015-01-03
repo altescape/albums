@@ -10,6 +10,7 @@ class AlbumCollectionsController < ApplicationController
   # GET /album_collections/1
   # GET /album_collections/1.json
   def show
+    @album_collection = AlbumCollection.find_by(user_id: current_user.id)
   end
 
   # GET /album_collections/new
@@ -65,7 +66,7 @@ class AlbumCollectionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_album_collection
       # @album_collection = AlbumCollection.find(params[:id])
-      @album_collection = AlbumCollection.find_by user_id: current_user.id
+      @album_collection = AlbumCollection.find_by(user_id: current_user.id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
