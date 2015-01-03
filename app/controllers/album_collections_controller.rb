@@ -10,7 +10,6 @@ class AlbumCollectionsController < ApplicationController
   # GET /album_collections/1
   # GET /album_collections/1.json
   def show
-    @user = current_user
     @album_collection = AlbumCollection.find_by(user_id: current_user.id)
   end
 

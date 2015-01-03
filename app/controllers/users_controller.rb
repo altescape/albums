@@ -35,11 +35,13 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
 
+        # Does user's name end in s?
         album_name = @user.name + "'s Top 5 Albums"
         if @user.name.last.downcase == "s"
           album_name = @user.name + "' Top 5 Albums"
         end
         @album_collection = @user.create_album_collection(:name => album_name)
+
         log_in @user
 
         format.html { redirect_to '/your_top_5', notice: 'User was successfully created.' }
