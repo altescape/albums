@@ -1,19 +1,43 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, 'User ' + @album_collection.user.name + ' Top 5 Albums') %>
 
-<p>
-  <strong>Id:</strong>
-  <%= @album_collection.id %>
-</p>
+<div class="container">
 
-<p>
-  <strong>Name:</strong>
-  <%= @album_collection.name %>
-</p>
+  <div class="box">
+    <div class="text-center">
 
-<p>
-  <strong>Albums:</strong>
-  <%= @album_collection.albums %>
-</p>
+      <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_album_collection_path(@album_collection) %> |
-<%= link_to 'Back', album_collections_path %>
+      <h1><%= @album_collection.name %></h1>
+
+      <hr>
+
+      <%= render 'albums' %>
+
+      <hr>
+
+      <!--<div class="col-sm-8 col-sm-offset-2">-->
+
+        <!--<div class="col-sm-2 text-center">-->
+          <!--<p><%= gravatar_for @album_collection.user %></p>-->
+
+          <!--<p><%= link_to 'Edit', edit_album_collection_path(@album_collection), class: 'btn btn-default' %></p>-->
+        <!--</div>-->
+        <!--<div class="col-sm-10 text-left">-->
+          <!--<h2><%= @album_collection.user.name %></h2>-->
+
+          <!--<p><strong>Id:</strong> <%= @album_collection.user.id %></p>-->
+
+          <!--<p><strong>Email:</strong> <%= @album_collection.user.email %></p>-->
+
+          <!--<p><strong>Albums:</strong> <%= link_to 'View albums', @album_collection %></p>-->
+
+          <!--<p><strong>User:</strong> <%= @album_collection.user %></p>-->
+
+          <!--<p><%= link_to 'Back', album_collections_path %></p>-->
+        <!--</div>-->
+
+      <!--</div>-->
+
+    </div>
+  </div>
+</div>

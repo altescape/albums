@@ -1,12 +1,23 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="no-js" lang="">
 <head>
+
   <title>Albums</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body class="<%= yield :body_class %>">
+
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
 
 <nav class="navbar navbar-default navbar-static-top">
   <div class="container-fluid">
@@ -15,18 +26,22 @@
     </div>
     <ul class="nav navbar-nav navbar-right">
       <% if logged_in? %>
-          <li><%= link_to "Log out", logout_path %></li>
-          <li><%= link_to "Profile", current_user %></li>
+          <li><%= link_to "Add Album", search_path %></li>
+          <li><%= link_to "Your Top 5", album_collections_path %></li>
+          <li><%= link_to "Log Out", logout_path %></li>
+          <li><%= link_to "Profile", show_path %></li>
           <li class="header-gravatar"><%= link_to current_user do gravatar_for current_user end %></li>
       <% else %>
-          <li><%= link_to 'Register', new_user_path %></li>
-          <li><%= link_to "Log in", login_path %></li>
+          <li><%= link_to "Register", new_user_path %></li>
+          <li><%= link_to "Log In", login_path %></li>
       <% end %>
     </ul>
   </div>
 </nav>
 
 <%= yield %>
+
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
 <%= debug(params) if Rails.env.development? %>
 

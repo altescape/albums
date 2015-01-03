@@ -2,39 +2,69 @@
   <div class="box">
     <div class="text-center">
 
-      <h1>Search for albums</h1>
-
-      <form class="form-horizontal" action="" method="get" name="search">
-        <div class="form-group">
-          <label for="inputSearch" class="col-sm-2 control-label">Search</label>
-
-          <div class="col-sm-8">
-            <input type="text" class="form-control" id="inputSearch" placeholder="Search for album" name="s">
-          </div>
-          <div class="col-sm-2">
-            <button type="submit" class="btn btn-primary btn-block">Search</button>
-          </div>
-        </div>
-      </form>
-
-      <h2><%= rdio_connect.count %> results found</h2>
+      <h1>Albums</h1>
 
       <hr>
 
-      <div class="row">
-        <% rdio_connect.each do |result| %>
-            <div class=" col-sm-3" title="<%= result.name %>">
-              <div class="thumbnail">
-                <img src="<%= result.icon %>" alt="Album cover for <%= result.name %>">
-
-                <div class="caption">
-                  <p><small><%= result.name[0..15] %></small></p>
-                  <p><a href="/albums/new?n=<%= u result.name %>&i=<%= u result.icon %>&a=<%= u result.artist %>&p=1" class="btn btn-primary btn-block btn-sm">SELECT</a></p>
-                </div>
-              </div>
+      <div class="albums-container">
+        <ul id="sortable" class="list-unstyled albums">
+          <li class="album">
+            <img src="http://img00.cdn2-rdio.com/album/7/1/8/0000000000123817/square-200.jpg" width="100%">
+            <div class="top-function functions">
+                <a href="/search/1"><span class="glyphicon glyphicon-search"></span></a>
             </div>
-        <% end %>
+            <div class="bottom-function functions">
+                <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+            </div>
+          </li>
+          <li class="album">
+            <img src="http://rdio3img-a.akamaihd.net/album/5/6/9/0000000000353965/1/square-200.jpg" width="100%">
+            <div class="top-function functions">
+              <a href="/search/2"><span class="glyphicon glyphicon-search"></span></a>
+            </div>
+            <div class="bottom-function functions">
+              <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+            </div>
+          </li>
+          <li class="album">
+            <img src="http://img00.cdn2-rdio.com/album/1/d/f/00000000003dcfd1/3/square-200.jpg" width="100%">
+            <div class="top-function functions">
+              <a href="/search/3"><span class="glyphicon glyphicon-search"></span></a>
+            </div>
+            <div class="bottom-function functions">
+              <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+            </div>
+          </li>
+          <li class="album">
+            <img src="http://img02.cdn2-rdio.com/album/c/4/9/000000000004d94c/square-200.jpg" width="100%">
+            <div class="top-function functions">
+              <a href="/search/4"><span class="glyphicon glyphicon-search"></span></a>
+            </div>
+            <div class="bottom-function functions">
+              <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+            </div>
+          </li>
+          <li class="album">
+            <img src="http://img00.cdn2-rdio.com/album/a/b/1/00000000000381ba/2/square-200.jpg" width="100%">
+            <div class="top-function functions">
+              <a href="/search/5"><span class="glyphicon glyphicon-search"></span></a>
+            </div>
+            <div class="bottom-function functions">
+              <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+            </div>
+          </li>
+        </ul>
+        <span class="positions">
+          <i>1</i>
+          <i>2</i>
+          <i>3</i>
+          <i>4</i>
+          <i>5</i>
+        </span>
+        <a href="#" class="action">SAVE</a>
       </div>
+
+      <hr>
 
       <table>
         <thead>
@@ -42,7 +72,6 @@
           <th>Name</th>
           <th>Band</th>
           <th>Image</th>
-          <th>Position</th>
           <th colspan="3"></th>
         </tr>
         </thead>
@@ -53,7 +82,6 @@
               <td><%= album.name %></td>
               <td><%= album.band %></td>
               <td><%= album.image %></td>
-              <td><%= album.position %></td>
               <td><%= link_to 'Show', album %></td>
               <td><%= link_to 'Edit', edit_album_path(album) %></td>
               <td><%= link_to 'Destroy', album, method: :delete, data: {confirm: 'Are you sure?'} %></td>

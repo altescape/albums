@@ -64,11 +64,12 @@ class AlbumCollectionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_album_collection
-      @album_collection = AlbumCollection.find(params[:id])
+      # @album_collection = AlbumCollection.find(params[:id])
+      @album_collection = AlbumCollection.find_by user_id: current_user.id
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def album_collection_params
-      params.require(:album_collection).permit(:id, :name, :albums)
+      params.require(:album_collection).permit(:user)
     end
 end

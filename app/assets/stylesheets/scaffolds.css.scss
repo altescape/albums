@@ -22,13 +22,26 @@ pre {
 }
 
 a {
-  color: #000;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  transition: all 0.1s linear;
   &:visited {
     color: #666;
   }
   &:hover {
-    color: #fff;
-    background-color: #000;
+
+  }
+}
+
+.link-block {
+  display: block;
+  padding: 10px;
+  margin: 10px;
+
+  &:hover {
+    background-color: #EEE;
+    text-decoration: none;
+    box-shadow: 0 0 3px rgba(92, 165, 35, 0.80);
   }
 }
 

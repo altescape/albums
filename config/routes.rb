@@ -1,27 +1,35 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
-  get 'static_pages/home'
-  get 'static_pages/help'
-
-  resources :albums
-  get 'search' => 'albums#search'
-
-  resources :album_collections
-
-  resources :users
-
-  get    'login'   => 'sessions#new'
-  post   'login'   => 'sessions#create'
-
-  get    'logout'   => 'sessions#destroy'
-  delete 'logout'  => 'sessions#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'static_pages#home'
+
+  get 'sessions/new'
+
+  get 'static_pages/home'
+  get 'static_pages/help'
+
+  resources :albums
+  get 'albums/new/:p/:k', to: 'albums#new'
+
+
+  get 'search', to: 'albums#search'
+  get 'search/:p', to: 'albums#search'
+
+  resources :album_collections
+  get 'your_top_5', to: 'album_collections#show'
+
+  resources :users
+  get 'profile', to: 'users#show', as: :show
+  get 'register', to: 'users#new'
+
+  get    'login', to: 'sessions#new'
+  post   'login', to: 'sessions#create'
+
+  get    'logout', to: 'sessions#destroy'
+  delete 'logout', to: 'sessions#destroy'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

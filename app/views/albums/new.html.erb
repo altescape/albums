@@ -4,6 +4,13 @@
 
       <h1>New album</h1>
 
+      <%
+         results = rdio_get_album(params['k'])
+         params['a'] = results.artist
+         params['n'] = results.name
+         params['i'] = results.icon
+      %>
+
       <%= render 'form' %>
 
       <%= link_to 'Back', albums_path %>

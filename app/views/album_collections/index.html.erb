@@ -1,29 +1,43 @@
-<h1>Listing album_collections</h1>
+<div class="container">
+  <div class="box">
+    <div class="text-center">
 
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Albums</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <h1>Your top 5 Albums</h1>
 
-  <tbody>
-    <% @album_collections.each do |album_collection| %>
-      <tr>
-        <td><%= album_collection.id %></td>
-        <td><%= album_collection.name %></td>
-        <td><%= album_collection.albums %></td>
-        <td><%= link_to 'Show', album_collection %></td>
-        <td><%= link_to 'Edit', edit_album_collection_path(album_collection) %></td>
-        <td><%= link_to 'Destroy', album_collection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <hr>
 
-<br>
+      <%= render 'albums' %>
 
-<%= link_to 'New Album collection', new_album_collection_path %>
+      <hr>
+
+      <table>
+        <thead>
+        <tr>
+          <th>User</th>
+          <th>name</th>
+          <th>albums</th>
+          <th colspan="3"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @album_collections.each do |album_collection| %>
+            <tr>
+              <td><%= album_collection.user %></td>
+              <td><%= album_collection.name %></td>
+              <td><%= album_collection.albums %></td>
+              <td><%= link_to 'Show', album_collection %></td>
+              <td><%= link_to 'Edit', edit_album_collection_path(album_collection) %></td>
+              <td><%= link_to 'Destroy', album_collection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+      <hr>
+
+      <%= link_to 'New Album collection', new_album_collection_path %>
+
+    </div>
+  </div>
+</div>

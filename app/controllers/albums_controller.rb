@@ -61,6 +61,11 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def search
+    position = params['p']
+    render :search
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_album

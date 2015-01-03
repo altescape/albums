@@ -10,7 +10,11 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
+    user_id = session[:user_id]
+    if params[:id]
+      user_id = params[:id]
+    end
+    @user = User.find(user_id)
   end
 
   # GET /users/new
@@ -25,12 +29,20 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+
     @user = User.new(user_params)
 
     respond_to do |format|
       if @user.save
+
+        album_name = @user.name + "'s Top 5 Albums"
+        if @user.name.last.downcase == "s"
+          album_name = @user.name + "' Top 5 Albums"
+        end
+        @album_collection = @user.create_album_collection(:name => album_name)
         log_in @user
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+
+        format.html { redirect_to '/your_top_5', notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -66,7 +78,8 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = User.find(session[:user_id])
+      # @user = User.find(params['id'])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

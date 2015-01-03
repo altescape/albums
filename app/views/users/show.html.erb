@@ -1,39 +1,24 @@
+<% provide(:title, 'User ' + @user.name + ' Top 5 Albums') %>
+
 <div class="container">
 
   <p id="notice"><%= notice %></p>
 
-  <% provide(:title, @user.name) %>
-  <h1>
-    <%= gravatar_for @user %>
-    <%= @user.name %>
-  </h1>
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="col-sm-2 text-center">
+      <p><%= gravatar_for @user %></p>
+      <p><%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-default' %></p>
+    </div>
+    <div class="col-sm-10">
+      <h2><%= @user.name %></h2>
 
+      <p><strong>Id:</strong> <%= @user.id %></p>
 
-  <p>
-    <strong>Id:</strong>
-    <%= @user.id %>
-  </p>
+      <p><strong>Email:</strong> <%= @user.email %></p>
 
-  <p>
-    <strong>Name:</strong>
-    <%= @user.name %>
-  </p>
+      <p><strong>Albums:</strong> <%= link_to 'View albums', @user.album_collection %></p>
 
-  <p>
-    <strong>Email:</strong>
-    <%= @user.email %>
-  </p>
-
-  <p>
-    <strong>Password:</strong>
-    <%= @user.password %>
-  </p>
-
-  <p>
-    <strong>Albums:</strong>
-    <%= @user.albums %>
-  </p>
-
-  <%= link_to 'Edit', edit_user_path(@user) %> |
-  <%= link_to 'Back', users_path %>
+      <p><%= link_to 'Back', users_path %></p>
+    </div>
+  </div>
 </div>
