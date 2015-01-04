@@ -55,7 +55,7 @@ a {
   margin: 10px;
 
   &:hover {
-    background-color: #EEE;
+    background-color: darken($albums-background-color, 5%);
     text-decoration: none;
     box-shadow: 0 0 3px darken($albums-brand-color, 15%);
   }

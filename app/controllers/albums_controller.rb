@@ -10,6 +10,7 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
+    @album_collection = AlbumCollection.find_by(user_id: current_user.id)
   end
 
   # GET /albums/new
@@ -24,11 +25,15 @@ class AlbumsController < ApplicationController
   # POST /albums
   # POST /albums.json
   def create
-    @album = Album.new(album_params)
+
+    # add album to users collection
+    @album_collection = AlbumCollection.find_by(user_id: current_user.id)
+    @album = @album_collection.albums.create(album_params)
 
     respond_to do |format|
       if @album.save
-        format.html { redirect_to @album, notice: 'Album was successfully created.' }
+
+        format.html { redirect_to your_top_5_url, notice: 'Album was successfully created.' }
         format.json { render :show, status: :created, location: @album }
       else
         format.html { render :new }
@@ -56,7 +61,7 @@ class AlbumsController < ApplicationController
   def destroy
     @album.destroy
     respond_to do |format|
-      format.html { redirect_to albums_url, notice: 'Album was successfully destroyed.' }
+      format.html { redirect_to your_top_5_url, notice: 'Album was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

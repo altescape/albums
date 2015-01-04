@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    #@users = User.all
   end
 
   # GET /users/1
@@ -40,6 +40,7 @@ class UsersController < ApplicationController
         if @user.name.last.downcase == "s"
           album_name = @user.name + "' Top 5 Albums"
         end
+        # automatically create the album collection for the user
         @album_collection = @user.create_album_collection(:name => album_name)
 
         log_in @user

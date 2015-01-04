@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :albums
   get 'albums/new/:p/:k', to: 'albums#new'
+  delete 'your_top_5/:id', to: 'albums#destroy'
 
 
   get 'search', to: 'albums#search'

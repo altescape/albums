@@ -1,38 +1,37 @@
 <div class="container">
   <div class="box">
-    <div class="text-center">
 
-      <h1>Search for albums</h1>
+    <div class="row text-center">
+      <h1 class="page-heading">Search for albums</h1>
 
       <form class="form-horizontal" action="" method="get" name="search">
-        <div class="form-group">
-          <label for="inputSearch" class="col-sm-2 control-label">Search</label>
-
-          <div class="col-sm-8">
-            <%
-                placeholder = 'Search for album'
-                if params['s']
-                  placeholder = params['s']
-                end
-            %>
-            <input type="text" class="form-control" id="inputSearch" placeholder="<%= placeholder %>" name="s">
-          </div>
-          <div class="col-sm-2">
-            <button type="submit" class="btn btn-primary btn-block">Search</button>
+        <div class="col-md-6 col-md-offset-3">
+          <div class="form-group">
+            <div class="col-sm-8">
+              <%
+                 placeholder = 'Search for album'
+                 if params['s']
+                   placeholder = params['s']
+                 end
+              %>
+              <input type="text" class="form-control input-lg" id="inputSearch" placeholder="<%= placeholder %>" name="s">
+            </div>
+            <div class="col-sm-4">
+              <button type="submit" class="btn btn-primary btn-block btn-lg">Search</button>
+            </div>
           </div>
         </div>
       </form>
-
-      <h4><%= rdio_connect(rdio_album).count %> albums found</h4>
-
-      <hr>
-
-      <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-          <%= render 'search_result' %>
-        </div>
-      </div>
-
     </div>
+
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <p class="h4 text-center"><%= rdio_connect(rdio_album).count %> albums found</p>
+        <hr>
+        <%= render 'search_result' %>
+      </div>
+    </div>
+
   </div>
+
 </div>

@@ -11,23 +11,10 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, value: params[:n] %>
-  </div>
-  <div class="field">
-    <%= f.label :band %><br>
-    <%= f.text_field :band, value: params[:a] %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.text_field :image, value: params[:i] %>
-  </div>
-  <div class="field">
-    <%= f.label :position %><br>
-    <%= f.number_field :position, value: params[:p] %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.text_field :name, value: params[:n], type: 'hidden' %>
+    <%= f.text_field :band, value: params[:a], type: 'hidden' %>
+    <%= f.text_field :image, value: params[:i], type: 'hidden' %>
+    <%= f.number_field :position, value: params[:p], type: 'hidden' %>
+    <%= f.submit "Add to Top 5", class: "btn btn-lg btn-primary" %>
+
 <% end %>

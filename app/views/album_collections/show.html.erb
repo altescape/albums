@@ -5,15 +5,11 @@
   <div class="box">
     <div class="text-center">
 
-      <p id="notice"><%= notice %></p>
+      <p id="notice" class="hidden"><%= notice %></p>
 
-      <h1><%= @album_collection.name %></h1>
-
-      <hr>
+      <h1 class="page-heading"><%= @album_collection.name %></h1>
 
       <%= render 'albums' %>
-
-      <hr>
 
     </div>
   </div>

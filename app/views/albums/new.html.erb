@@ -7,33 +7,13 @@
 
 <div class="container">
 
-  <div class="col-sm-8 col-sm-offset-2">
-    <div class="col-sm-5 text-center">
-      <p><%= image_tag(results.icon) %></p>
-    </div>
-    <div class="col-sm-7">
-      <h4><%= results.name %></h4>
-
-      <p><strong>Artist:</strong> <%= results.artist %></p>
-
-      <p><strong>Release date:</strong> <%= results.releaseDate %></p>
-
-      <p><strong>Tracks:</strong> <%= results.length %> tracks (views not available)</p>
-
-      <p><a href="">Add this to position <%= params['p'] %></a></p>
-
-    </div>
-  </div>
-
-  <div class="box">
-    <div class="single-column text-center">
-
-      <h1>New album</h1>
+  <div class="col-sm-4 col-sm-offset-4">
+      <p><%= image_tag(results.icon.gsub('square-200', 'square-400'), width: '100%') %></p>
+      <h3><%= results.name %></h3>
+      <p class="h5"><%= Date.strptime(results.releaseDate.to_s, '%Y-%m-%d').year %>, <%= results.artist.upcase %></p>
 
       <%= render 'form' %>
 
-      <%= link_to 'Back', albums_path %>
-
-    </div>
   </div>
+
 </div>

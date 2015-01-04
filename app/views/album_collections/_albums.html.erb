@@ -1,57 +1,165 @@
 <div class="albums-container">
   <ul id="sortable" class="list-unstyled albums">
     <li class="album">
-      <img src="<%= image_url('albums-placeholders-add.png') %>" width="100%">
+      <% albums1 = @album_collection.albums.where(position: 1)
+         album1 = albums1.last
+
+         if album1.nil?
+           image1 = 'albums-placeholders-add.png'
+           title1 = 'Add an album'
+         else
+           image1 = album1.image
+           title1 = album1.band + ': ' + album1.name
+           id1 = '/your_top_5/' + album1.id.to_s
+         end
+      %>
+      <img src="<%= image_url(image1) %>" width="100%" alt="<%= title1 %>">
+
       <div class="top-function functions">
         <a href="/search/1"><span class="glyphicon glyphicon-search"></span></a>
       </div>
-      <div class="bottom-function functions">
-        <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
-      </div>
+      <% if id1 %>
+          <div class="bottom-function functions">
+            <a data-confirm="Are you sure?" data-method="delete" href="<%= id1 %>" rel="nofollow">
+              <span class="glyphicon glyphicon-remove"></span>
+            </a>
+          </div>
+      <% end %>
     </li>
     <li class="album">
+      <% albums2 = @album_collection.albums.where(position: 2)
+         album2 = albums2.last
+
+         if album2.nil?
+           image2 = 'albums-placeholders-order-1.png'
+           title2 = 'Drag and album to reorder'
+         else
+           image2 = album2.image
+           title2 = album2.band + ': ' + album2.name
+           id2 = '/albums/' + album2.id.to_s
+         end
+      %>
+      <img src="<%= image_url(image2) %>" width="100%" alt="<%= title2 %>">
       <img src="<%= image_url('albums-placeholders-order-1.png') %>" width="100%">
+
       <div class="top-function functions">
         <a href="/search/2"><span class="glyphicon glyphicon-search"></span></a>
       </div>
-      <div class="bottom-function functions">
-        <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
-      </div>
+      <% if id2 %>
+          <div class="bottom-function functions">
+            <a data-confirm="Are you sure?" data-method="delete" href="<%= id2 %>" rel="nofollow">
+              <span class="glyphicon glyphicon-remove"></span>
+            </a>
+          </div>
+      <% end %>
     </li>
     <li class="album">
-      <img src="<%= image_url('albums-placeholders-remove.png') %>" width="100%">
+      <% albums3 = @album_collection.albums.where(position: 3)
+         album3 = albums3.last
+
+         if album3.nil?
+           image3 = 'albums-placeholders-remove.png'
+           title3 = 'Remove and album'
+         else
+           image3 = album3.image
+           title3 = album3.band + ': ' + album3.name
+           id3 = '/albums/' + album3.id.to_s
+         end
+      %>
+      <img src="<%= image_url(image3) %>" width="100%" alt="<%= title3 %>">
+
       <div class="top-function functions">
         <a href="/search/3"><span class="glyphicon glyphicon-search"></span></a>
       </div>
-      <div class="bottom-function functions">
-        <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
-      </div>
+      <% if id3 %>
+          <div class="bottom-function functions">
+            <a data-confirm="Are you sure?" data-method="delete" href="<%= id3 %>" rel="nofollow">
+              <span class="glyphicon glyphicon-remove"></span>
+            </a>
+          </div>
+      <% end %>
     </li>
     <li class="album">
-      <img src="<%= image_url('albums-placeholders-order-2.png') %>" width="100%">
+      <% albums4 = @album_collection.albums.where(position: 4)
+         album4 = albums4.last
+
+         if album4.nil?
+           image4 = 'albums-placeholders-order-2.png'
+           title4 = 'Drag to reorder'
+         else
+           image4 = album4.image
+           title4 = album4.band + ': ' + album4.name
+           id4 = '/albums/' + album4.id.to_s
+         end
+      %>
+      <img src="<%= image_url(image4) %>" width="100%" alt="<%= title4 %>">
+
       <div class="top-function functions">
         <a href="/search/4"><span class="glyphicon glyphicon-search"></span></a>
       </div>
-      <div class="bottom-function functions">
-        <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
-      </div>
+      <% if id4 %>
+          <div class="bottom-function functions">
+            <a data-confirm="Are you sure?" data-method="delete" href="<%= id4 %>" rel="nofollow">
+              <span class="glyphicon glyphicon-remove"></span>
+            </a>
+          </div>
+      <% end %>
     </li>
     <li class="album">
-      <img src="<%= image_url('albums-placeholders-save.png') %>" width="100%">
+      <% albums5 = @album_collection.albums.where(position: 5)
+         album5 = albums5.last
+
+         if album5.nil?
+           image5 = 'albums-placeholders-save.png'
+           title5 = 'Click save to save your albums'
+         else
+           image5 = album5.image
+           title5 = album5.band + ': ' + album5.name
+           id5 = '/albums/' + album5.id.to_s
+         end
+      %>
+      <img src="<%= image_url(image5) %>" width="100%" alt="<%= title5 %>">
+
       <div class="top-function functions">
         <a href="/search/5"><span class="glyphicon glyphicon-search"></span></a>
       </div>
-      <div class="bottom-function functions">
-        <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
-      </div>
+      <% if id5 %>
+          <div class="bottom-function functions">
+            <a data-confirm="Are you sure?" data-method="delete" href="<%= id5 %>" rel="nofollow">
+              <span class="glyphicon glyphicon-remove"></span>
+            </a>
+          </div>
+      <% end %>
     </li>
   </ul>
-        <span class="positions">
-          <i>1</i>
-          <i>2</i>
-          <i>3</i>
-          <i>4</i>
-          <i>5</i>
-        </span>
+    <span class="positions">
+      <i>1</i>
+      <i>2</i>
+      <i>3</i>
+      <i>4</i>
+      <i>5</i>
+    </span>
   <a href="#" class="action">SAVE</a>
 </div>
+
+<% if Rails.env.development? %>
+<table class="table table-bordered">
+  <tr>
+    <th>Position</th>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Band</th>
+    <th></th>
+  </tr>
+
+  <% @album_collection.albums.each do |album| %>
+      <tr>
+        <td><%= album.position %></td>
+        <td><%= album.id %></td>
+        <td><%= album.name %></td>
+        <td><%= album.band %></td>
+        <td><%= image_tag(album.image) %></td>
+      </tr>
+  <% end %>
+</table>
+<% end %>

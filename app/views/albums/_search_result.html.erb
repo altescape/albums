@@ -7,23 +7,24 @@
     %>
     <div class="media text-left link-block search-result" title="<%= result.name %>">
       <div class="media-left">
-        <img src="<%= result.icon %>" alt="Album cover for <%= result.name %>" style="width: 100px;">
+        <%= image_tag(result.icon, alt: 'Album cover for ' + result.name, style: 'width: 100px') %>
       </div>
       <div class="media-body">
-        <h4 class="media-heading"><%= result.name[0..30] %></h4>
+        <h4 class="media-heading"><%= result.name %></h4>
         <p><%= result.artist %></p>
         <% if params['p'] %>
             <p class="action">
-              <a href="/albums/new<%= position %>/<%= result['key'] %>" class="btn btn-default btn-sm">Add this album <i class="glyphicon glyphicon-plus-sign"></i></a>
+              <a href="/albums/new<%= position %>/<%= result['key'] %>" class="btn btn-primary btn-sm">Add this album <i class="glyphicon glyphicon-plus-sign"></i></a>
             </p>
         <% else %>
             <ul class="list-inline position-links">
               <li>Add to: </li>
               <% 1.upto 5 do |i| %>
-                  <li><a href="/albums/new/<%= i %>/<%= result['key'] %>" class="btn btn-default btn-sm"><%= i %></a></li>
+                  <li><a href="/albums/new/<%= i %>/<%= result['key'] %>" class="btn btn-primary btn-sm"><%= i %></a></li>
               <% end %>
             </ul>
         <% end %>
       </div>
     </div>
+    <hr>
 <% end %>
