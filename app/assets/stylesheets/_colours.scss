@@ -1,9 +1,12 @@
-$albums-brand-color: #ff6862;
+$albums-brand-color: #9B9668;
 $brand-primary: $albums-brand-color;
-$albums-background-color: #ffd0b0;
-$albums-header-color: #B32020;
+$albums-background-color: #F0E7D0;
+$albums-header-color: #61694B;
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {color: $albums-header-color;}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  color: $albums-header-color;
+  font-family: 'hotel-open';
+}
 
 a {
   color: $albums-brand-color;

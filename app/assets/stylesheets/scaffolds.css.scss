@@ -4,11 +4,11 @@
 @import "bootstrap";
 
 body {
-  background-color: $albums-background-color;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: 'brandon-grotesque';
   font-size: 13px;
   line-height: 18px;
+  background: url(/assets/background.png) 50% 50% transparent;
 }
 
 .navbar-default {

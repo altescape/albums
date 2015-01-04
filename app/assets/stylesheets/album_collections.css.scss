@@ -67,6 +67,7 @@
 
             &:hover {
               background-color: darken($albums-brand-color,10%);
+              cursor: pointer;
             }
           }
         }
@@ -83,6 +84,7 @@
 
             &:hover {
               background-color: darken(#B00100,10%);
+              cursor: pointer;
             }
           }
         }
@@ -145,26 +147,23 @@
     $positions-dims: 20px;
     i {
       position: absolute;
-
       display: block;
-      width: $positions-dims;
-      height: $positions-dims;
+      width: 40px;
+      height: 40px;
       text-align: center;
-      line-height: $positions-dims;
-      box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
-
-      background-color: whitesmoke;
-
-      color: $albums-brand-color;
+      line-height: 40px;
+      background-color: $albums-header-color;
+      color: $albums-background-color;
       font-style: normal;
-      font-size: 10px;
-      font-weight: bold;
+      font-size: 20px;
+      font-family: 'hotel-open';
+      border-radius: 50%;
     }
 
-    i:nth-child(1) { top: 0px; left: 0px; }
-    i:nth-child(2) { top: 0px; left: 200px; }
-    i:nth-child(3) { top: 200px; left: 0px; }
-    i:nth-child(4) { top: 200px; left: 200px; }
-    i:nth-child(5) { top: 400px; left: 0px; }
+    i:nth-child(1) { top: -10px; left: 80px; }
+    i:nth-child(2) { top: -10px; left: 280px; }
+    i:nth-child(3) { top: 190px; left: 80px; }
+    i:nth-child(4) { top: 190px; left: 280px; }
+    i:nth-child(5) { top: 390px; left: 80px; }
   }
 }

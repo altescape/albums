@@ -6,7 +6,8 @@ html, body.title-screen, .wrap {
   height: 100%;
 }
 body.title-screen {
-  background-color: $albums-brand-color;
+  background: url(/assets/background-title-page.png) 50% 50% $albums-brand-color;
+
 
   .navbar-static-top {display: none;}
 }
@@ -36,23 +37,25 @@ body.title-screen {
 .brand {
   font-size: 100px;
   color: $albums-brand-color;
-  font-weight: bold;
+  font-weight: normal;
   width: 150px;
   height: 210px;
   margin: 70px auto 30px;
   position: relative;
+  zoom: 1.5;
 
   &:before {
     content: "";
     display: block;
     width: 150px;
     height: 150px;
-    background-color: $albums-background-color;
+    background: url(/assets/background.png) 50% 50% $albums-background-color;
     position: absolute;
     z-index: -1;
     transform: rotate(45deg);
     top: -15px;
     left: 0;
+    box-shadow: 0 0 7px rgba(79, 71, 47, 1) inset, 0 0 26px rgba(64%, 58%, 40%, .3) inset;
   }
 
   span {
