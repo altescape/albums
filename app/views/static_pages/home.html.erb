@@ -5,10 +5,10 @@
     <div class="single-column">
       <h1 class="brand"><span>TOP</span> <span>5</span> <span>ALBUMS</span></h1>
       <% if logged_in? %>
-          <p><%= link_to 'ENTER', new_album_collection_path, class: "btn btn-default btn-lg" %></p>
-    <% else %>
+          <p><%= link_to 'ENTER', your_top_5_path, class: "btn btn-default btn-lg" %></p>
+      <% else %>
           <p><%= link_to 'ENTER', new_user_path, class: "btn btn-default btn-lg" %></p>
-    <% end %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,0 +1,14 @@
+$albums-brand-color: #FF7BAC;
+$brand-primary: $albums-brand-color;
+$albums-background-color: #FAF7F1;
+$albums-header-color: #A15E40;
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {color: $albums-header-color;}
+
+a {
+  color: $albums-brand-color;
+
+  &:hover {
+    color: darken($albums-brand-color, 10%);
+  }
+}

@@ -16,7 +16,7 @@ module AlbumsHelper
   end
 
   def rdio_get_album(album_key)
-    @@client.get(:keys => album_key, :extras => "-*, icon,artist,name,key")[album_key]
+    @@client.get(:keys => album_key, :extras => "-*, icon,artist,name,key,releaseDate,length")[album_key]
   end
 
   def rdio_format

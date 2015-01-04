@@ -1,7 +1,7 @@
 // Place all the styles related to the AlbumCollections controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+@import "colours";
 .form-album {
   max-width: 330px;
   padding: 15px;
@@ -62,11 +62,11 @@
 
           a {
             top: 0;
-            background-color: #5ca523;
+            background-color: $albums-brand-color;
             color: white;
 
             &:hover {
-              background-color: darken(#5ca523,10%);
+              background-color: darken($albums-brand-color,10%);
             }
           }
         }
@@ -124,7 +124,7 @@
 
     display: block;
     line-height: $album-height;
-    background-color: #5ca523;
+    background-color: $albums-brand-color;
 
     color: #ffffff;
     font-weight: bold;
@@ -136,7 +136,7 @@
 
     &:hover {
       text-decoration: none;
-      background-color: lighten(#5ca523, 4%);
+      background-color: lighten($albums-brand-color, 4%);
     }
   }
 
@@ -155,7 +155,7 @@
 
       background-color: whitesmoke;
 
-      color: #5ca523;
+      color: $albums-brand-color;
       font-style: normal;
       font-size: 10px;
       font-weight: bold;

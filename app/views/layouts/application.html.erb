@@ -27,7 +27,7 @@
     <ul class="nav navbar-nav navbar-right">
       <% if logged_in? %>
           <li><%= link_to "Add Album", search_path %></li>
-          <li><%= link_to "Your Top 5", album_collections_path %></li>
+          <li><%= link_to "Your Top 5", your_top_5_path %></li>
           <li><%= link_to "Log Out", logout_path %></li>
           <li><%= link_to "Profile", show_path %></li>
           <li class="header-gravatar"><%= link_to current_user do gravatar_for current_user end %></li>

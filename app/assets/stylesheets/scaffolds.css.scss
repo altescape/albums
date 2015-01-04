@@ -1,12 +1,28 @@
+@import "colours";
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
 body {
-  background-color: #fff;
+  background-color: $albums-background-color;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+}
+
+.navbar-default {
+  background-color: $albums-brand-color;
+  border: none;
+
+  .navbar-brand,
+  .navbar-nav > li > a {
+    color: $albums-background-color;
+
+    &:hover {color: #ffffff}
+  }
+
+
 }
 
 p, ol, ul, td {
@@ -41,7 +57,7 @@ a {
   &:hover {
     background-color: #EEE;
     text-decoration: none;
-    box-shadow: 0 0 3px rgba(92, 165, 35, 0.80);
+    box-shadow: 0 0 3px darken($albums-brand-color, 15%);
   }
 }
 
@@ -52,19 +68,26 @@ div {
 }
 
 .btn-lg {
-  border-radius: 0;
   border: none;
   font-weight: bold;
-  color: #5ca523;
-  padding: 1em 2em;
+  color: $albums-brand-color;
+  padding: 0.7em 2em;
+  background-color: $albums-background-color;
+
+  &:visited {color: $albums-brand-color}
+
+  &:hover {
+    color: lighten($albums-brand-color, 12%);
+    background-color: darken($albums-brand-color, 12%);
+  }
 
   &.btn-primary {
-    background-color: #5ca523;
-    color: whitesmoke;
+    background-color: $albums-brand-color;
+    color: $albums-background-color;
 
     &:hover {
-      background-color: darken(#5ca523, 8%);
-      color: white;
+      background-color: darken($albums-brand-color, 8%);
+      color: $albums-background-color;
     }
   }
 }

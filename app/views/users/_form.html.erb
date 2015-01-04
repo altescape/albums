@@ -1,4 +1,4 @@
-<%= form_for @user, :html => {:class => "form-register"} do |f| %>
+<%= form_for @user, :html => {:class => "form-register text-center"} do |f| %>
     <% if @user.errors.any? %>
         <div id="error_explanation" class="panel panel-danger">
           <div class="panel-body">
@@ -21,5 +21,5 @@
 
     <%= f.label :password, class: "sr-only" %>
     <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
-    <%= f.submit "Submit", class: "btn btn-lg btn-primary btn-block" %>
+    <%= f.submit "Submit", class: "btn btn-lg btn-primary" %>
 <% end %>

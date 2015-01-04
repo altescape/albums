@@ -1,16 +1,12 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+@import "colours";
 html, body.title-screen, .wrap {
   height: 100%;
 }
-
-body {
-  background-color: whitesmoke;
-}
 body.title-screen {
-  background-color: #5ca523;
+  background-color: $albums-brand-color;
 
   .navbar-static-top {display: none;}
 }
@@ -38,9 +34,8 @@ body.title-screen {
 // HOME
 
 .brand {
-  $brand-colour: #5ca523;
   font-size: 100px;
-  color: $brand-colour;
+  color: $albums-brand-color;
   font-weight: bold;
   width: 150px;
   height: 210px;
@@ -52,7 +47,7 @@ body.title-screen {
     display: block;
     width: 150px;
     height: 150px;
-    background-color: #ffffff;
+    background-color: $albums-background-color;
     position: absolute;
     z-index: -1;
     transform: rotate(45deg);
@@ -78,7 +73,7 @@ body.title-screen {
   }
   span:nth-child(3) {
     font-size: 32px;
-    color: #ffffff;
+    color: $albums-background-color;
     bottom: 0;
     top: auto;
   }
@@ -87,11 +82,11 @@ body.title-screen {
     color: white;
 
     &:before {
-      background-color: $brand-colour;
+      background-color: $albums-brand-color;
     }
 
     span:nth-child(3) {
-      color: $brand-colour;
+      color: $albums-brand-color;
     }
   }
 
