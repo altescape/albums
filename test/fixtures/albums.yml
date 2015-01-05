@@ -1,39 +1,39 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id: 
+  id: 1
   name: MyString
   band: MyString
   image: MyString
   position: 1
-  albumCollection_id:
+  albumCollection_id: 1
 
 two:
-  id:
+  id: 2
   name: MyString
   band: MyString
   image: MyString
   position: 2
-  albumCollection_id:
+  albumCollection_id: 1
 
 three:
-  id:
+  id: 3
   name: MyString
   band: MyString
   image: MyString
   position: 3
-  albumCollection_id:
+  albumCollection_id: 1
 
 four:
-  id:
+  id: 4
   name: MyString
   band: MyString
   image: MyString
   position: 4
-  albumCollection_id:
+  albumCollection_id: 1
 
 five:
-  id:
+  id: 5
   name: MyString
   band: MyString
   image: MyString
