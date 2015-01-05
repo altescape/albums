@@ -70,9 +70,9 @@ class UserTest < ActiveSupport::TestCase
 
   test "name should be capitalized" do
     @user.name = "downcase barry"
-    expect = "Downcase Barry"
+    expected = "Downcase Barry"
     @user.save
-    assert_equal expect, @user.name
+    assert_equal expected, @user.name
   end
 
 end
