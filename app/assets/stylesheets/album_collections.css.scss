@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "colours";
+body.top5 {
+  background: url(background.png) 50% 50% transparent;
+}
 .form-album {
   max-width: 330px;
   padding: 15px;

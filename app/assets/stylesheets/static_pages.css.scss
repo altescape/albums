@@ -6,7 +6,7 @@ html, body.title-screen, .wrap {
   height: 100%;
 }
 body.title-screen {
-  background: url(/assets/background-title-page.png) 50% 50% $albums-brand-color;
+  background: url(background-title-page.png) 50% 50% $albums-brand-color;
 
 
   .navbar-static-top {display: none;}
@@ -49,7 +49,7 @@ body.title-screen {
     display: block;
     width: 150px;
     height: 150px;
-    background: url(/assets/background.png) 50% 50% $albums-background-color;
+    background: url(background.png) 50% 50% $albums-background-color;
     position: absolute;
     z-index: -1;
     transform: rotate(45deg);
