@@ -5,4 +5,5 @@ class Album < ActiveRecord::Base
   validates :image, presence: true
   validates :band, presence: true
   validates :position, presence: true
+
 end

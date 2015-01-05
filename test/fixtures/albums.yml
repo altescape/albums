@@ -1,7 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id: 1
   name: MyString
   band: MyString
   image: MyString
@@ -9,7 +8,6 @@ one:
   albumCollection_id: 1
 
 two:
-  id: 2
   name: MyString
   band: MyString
   image: MyString
@@ -17,7 +15,6 @@ two:
   albumCollection_id: 1
 
 three:
-  id: 3
   name: MyString
   band: MyString
   image: MyString
@@ -25,7 +22,6 @@ three:
   albumCollection_id: 1
 
 four:
-  id: 4
   name: MyString
   band: MyString
   image: MyString
@@ -33,9 +29,8 @@ four:
   albumCollection_id: 1
 
 five:
-  id: 5
   name: MyString
   band: MyString
   image: MyString
   position: 5
-  albumCollection_id:
+  albumCollection_id: 1
