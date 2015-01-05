@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   has_one :album_collection, dependent: :destroy
 
-  before_save { self.email = email.downcase }
+  before_save { self.email = email.downcase, self.name = name.capitalize }
 
   validates :name,
             presence: true,
