@@ -5,21 +5,37 @@ one:
   name: MyString
   band: MyString
   image: MyString
-  position1: 1
-  position2: 1
-  position3: 1
-  position4: 1
-  position5: 1
-  totalPositions: 1
+  position: 1
+  albumCollection_id:
 
 two:
-  id: 
+  id:
   name: MyString
   band: MyString
   image: MyString
-  position1: 1
-  position2: 1
-  position3: 1
-  position4: 1
-  position5: 1
-  totalPositions: 1
+  position: 2
+  albumCollection_id:
+
+three:
+  id:
+  name: MyString
+  band: MyString
+  image: MyString
+  position: 3
+  albumCollection_id:
+
+four:
+  id:
+  name: MyString
+  band: MyString
+  image: MyString
+  position: 4
+  albumCollection_id:
+
+five:
+  id:
+  name: MyString
+  band: MyString
+  image: MyString
+  position: 5
+  albumCollection_id:
