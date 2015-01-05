@@ -67,4 +67,12 @@ class UserTest < ActiveSupport::TestCase
     @user.password = @user.password_confirmation = "a" * 5
     assert_not @user.valid?
   end
+
+  test "name should be capitalized" do
+    @user.name = "downcase barry"
+    expect = "Downcase Barry"
+    @user.save
+    assert_equal expect, @user.name
+  end
+
 end

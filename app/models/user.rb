@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_one :album_collection, dependent: :destroy
 
 
-  before_save { self.name = name.capitalize }
+  before_save { self.name = name.titlecase }
   validates :name,
             presence: true,
             length: {maximum: 50}
