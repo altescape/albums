@@ -2,13 +2,14 @@ class User < ActiveRecord::Base
 
   has_one :album_collection, dependent: :destroy
 
-  before_save { self.email = email.downcase, self.name = name.capitalize }
 
+  before_save { self.name = name.capitalize }
   validates :name,
             presence: true,
             length: {maximum: 50}
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  before_save { self.email = email.downcase }
   validates :email,
             presence: true,
             length: {maximum: 255},
