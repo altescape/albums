@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   has_one :album_collection, dependent: :destroy
-
+  validates_associated :album_collection
 
   before_save { self.name = name.titlecase }
   validates :name,
@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password,
             length: {minimum: 6}
+
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
