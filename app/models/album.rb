@@ -16,4 +16,8 @@ class Album < ActiveRecord::Base
     api_access.get(:keys => album_key, :extras => "-*, icon,artist,name,key,releaseDate,length")[album_key]
   end
 
+  def search_albums(album_name)
+    api_access.search(:query => album_name, :types => "album", :count => 12, :extras => "-*, icon,artist,name,key").results
+  end
+
 end

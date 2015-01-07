@@ -15,14 +15,4 @@ module AlbumsHelper
     @@client.search(:query => album_name, :types => "album", :count => 12, :extras => "-*, icon,artist,name,key").results
   end
 
-  def rdio_get_album(album_key)
-    @@client.get(:keys => album_key, :extras => "-*, icon,artist,name,key,releaseDate,length")[album_key]
-  end
-
-  def rdio_format
-    rdio_connect.each do |r|
-      # . . .
-    end
-  end
-
 end
