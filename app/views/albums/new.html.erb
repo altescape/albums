@@ -1,16 +1,15 @@
 <%
-   results = rdio_get_album(params['k'])
-   params['a'] = results.artist
-   params['n'] = results.name
-   params['i'] = results.icon
+   params['a'] = @artist
+   params['n'] = @name
+   params['i'] = @image
 %>
 
 <div class="container">
 
   <div class="col-sm-4 col-sm-offset-4">
-      <p><%= image_tag(results.icon.gsub('square-200', 'square-400'), width: '100%') %></p>
-      <h3><%= results.name %></h3>
-      <p class="h5"><%= Date.strptime(results.releaseDate.to_s, '%Y-%m-%d').year %>, <%= results.artist.upcase %></p>
+      <p><%= image_tag(@large_image, width: '100%') %></p>
+      <h3><%= @name %></h3>
+      <p class="h5"><%= @release_date %>, <%= @artist.upcase %></p>
 
       <%= render 'form' %>
 

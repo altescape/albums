@@ -5,4 +5,3 @@ one:
   name: Michael Example
   email: michael@example.com
   password_digest: <%= User.digest('password') %>
-  album_collection_id: 1

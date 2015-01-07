@@ -16,6 +16,12 @@ class AlbumsController < ApplicationController
   # GET /albums/new
   def new
     @album = Album.new
+    @album_details = @album.get_album(params['k'])
+    @name = @album_details.name
+    @artist = @album_details.artist
+    @image = @album_details.icon
+    @large_image = @album_details.icon.gsub('square-200', 'square-400')
+    @release_date = Date.strptime(@album_details.releaseDate.to_s, '%Y-%m-%d').year
   end
 
   # GET /albums/1/edit
@@ -32,7 +38,6 @@ class AlbumsController < ApplicationController
 
     respond_to do |format|
       if @album.save
-
         format.html { redirect_to your_top_5_url, notice: 'Album was successfully created.' }
         format.json { render :show, status: :created, location: @album }
       else
