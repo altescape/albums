@@ -35,7 +35,7 @@
           <li><%= link_to "Profile", show_path %></li>
           <li class="header-gravatar"><%= link_to show_path do gravatar_for current_user end %></li>
       <% else %>
-          <li><%= link_to "Register", new_user_path %></li>
+          <li><%= link_to "Register", register_path %></li>
           <li><%= link_to "Log In", login_path %></li>
       <% end %>
     </ul>

@@ -4,5 +4,10 @@
 
     <%= f.label :password, class: "sr-only" %>
     <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+
+    <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: "flash alert alert-#{key} text-center" %>
+    <% end %>
+
     <%= f.submit "Log in", class: "btn btn-lg btn-primary" %>
 <% end %>
