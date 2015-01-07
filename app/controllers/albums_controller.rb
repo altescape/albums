@@ -72,9 +72,26 @@ class AlbumsController < ApplicationController
   end
 
   def search
+    if params[:s]
+      search_term = params[:s]
+    else
+      search_term = [
+          "Lenny Kravitz",
+          "Jane's Addiction",
+          "The Damned",
+          "Weezer",
+          "Eagles of Death Metal",
+          "Band of Skulls",
+          "The Shins",
+          "Kasabian",
+          "Dead Kennedys",
+          "Buzzcocks"].sample
+    end
+
+
     @album = Album.new
     position = params['p']
-    @albums = @album.search_albums(params['s'])
+    @albums = @album.search_albums(search_term)
     render :search
   end
 
