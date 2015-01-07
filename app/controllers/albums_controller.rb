@@ -72,7 +72,9 @@ class AlbumsController < ApplicationController
   end
 
   def search
+    @album = Album.new
     position = params['p']
+    @albums = @album.search_albums(params['s'])
     render :search
   end
 
