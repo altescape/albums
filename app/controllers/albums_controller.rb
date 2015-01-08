@@ -72,8 +72,12 @@ class AlbumsController < ApplicationController
   end
 
   def search
-    if params[:s]
-      search_term = params[:s]
+
+    search_param = params[:s]
+
+    if search_param
+      search_term = search_param
+      @placeholder = search_param
     else
       search_term = [
           "Lenny Kravitz",
@@ -86,8 +90,8 @@ class AlbumsController < ApplicationController
           "Kasabian",
           "Dead Kennedys",
           "Buzzcocks"].sample
+      @placeholder = "Random search: " + search_term
     end
-
 
     @album = Album.new
     position = params['p']
