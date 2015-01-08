@@ -9,7 +9,7 @@
            title1 = 'Add an album'
          else
            image1 = album1.image
-           title1 = album1.band + ': ' + album1.name
+           title1 = album1.artist + ': ' + album1.name
            id1 = '/your_top_5/' + album1.id.to_s
          end
       %>
@@ -35,7 +35,7 @@
            title2 = 'Drag and album to reorder'
          else
            image2 = album2.image
-           title2 = album2.band + ': ' + album2.name
+           title2 = album2.artist + ': ' + album2.name
            id2 = '/albums/' + album2.id.to_s
          end
       %>
@@ -62,7 +62,7 @@
            title3 = 'Remove and album'
          else
            image3 = album3.image
-           title3 = album3.band + ': ' + album3.name
+           title3 = album3.artist + ': ' + album3.name
            id3 = '/albums/' + album3.id.to_s
          end
       %>
@@ -88,7 +88,7 @@
            title4 = 'Drag to reorder'
          else
            image4 = album4.image
-           title4 = album4.band + ': ' + album4.name
+           title4 = album4.artist + ': ' + album4.name
            id4 = '/albums/' + album4.id.to_s
          end
       %>
@@ -114,7 +114,7 @@
            title5 = 'Click save to save your albums'
          else
            image5 = album5.image
-           title5 = album5.band + ': ' + album5.name
+           title5 = album5.artist + ': ' + album5.name
            id5 = '/albums/' + album5.id.to_s
          end
       %>
@@ -148,7 +148,7 @@
     <th>Position</th>
     <th>ID</th>
     <th>Name</th>
-    <th>Band</th>
+    <th>Artist</th>
     <th></th>
   </tr>
 
@@ -157,7 +157,7 @@
         <td><%= album.position %></td>
         <td><%= album.id %></td>
         <td><%= album.name %></td>
-        <td><%= album.band %></td>
+        <td><%= album.artist %></td>
         <td><%= image_tag(album.image) %></td>
       </tr>
   <% end %>

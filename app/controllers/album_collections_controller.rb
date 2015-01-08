@@ -62,15 +62,25 @@ class AlbumCollectionsController < ApplicationController
     end
   end
 
+  def add_album
+    @album = Album.new
+    @album_details = @album.get_album(params['a'])
+    @name = @album_details.name
+    @artist = @album_details.artist
+    @image = @album_details.icon
+    @large_image = @album_details.icon.gsub('square-200', 'square-400')
+    @release_date = Date.strptime(@album_details.releaseDate.to_s, '%Y-%m-%d').year
+    @album_collection = AlbumCollection.find_by(user_id: current_user.id)
+    render :show
+  end
+
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_album_collection
-      # @album_collection = AlbumCollection.find(params[:id])
       @album_collection = AlbumCollection.find_by(user_id: current_user.id)
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def album_collection_params
+      params['']
       params.require(:album_collection).permit(:user)
     end
 end

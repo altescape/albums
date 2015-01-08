@@ -36,12 +36,13 @@ class UsersController < ApplicationController
       if @user.save
 
         # Does user's name end in s?
-        album_name = @user.name + "'s Top 5 Albums"
+        album_collection_name = @user.name + "'s Top 5 Albums"
         if @user.name.last.downcase == "s"
-          album_name = @user.name + "' Top 5 Albums"
+          album_collection_name = @user.name + "' Top 5 Albums"
         end
-        # automatically create the album collection for the user
-        @album_collection = @user.create_album_collection(:name => album_name)
+
+        # Create the album collection for the user
+        @user.album_collections.create(name: album_collection_name)
 
         log_in @user
 

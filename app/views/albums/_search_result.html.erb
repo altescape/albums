@@ -1,26 +1,28 @@
-<% @albums.each do |result| %>
-    <%
-       position = ''
-       if params['p']
-         position = '/' + params['p']
-       end
-    %>
-    <div class="media text-left link-block search-result" title="<%= result.name %>">
+<% @albums.each do |album| %>
+    <div class="media text-left link-block search-result" title="<%= album.name %>">
       <div class="media-left">
-        <%= image_tag(result.icon, alt: 'Album cover for ' + result.name, style: 'width: 100px') %>
+        <%= image_tag(album.icon, alt: 'Album cover for ' + album.name, style: 'width: 100px') %>
       </div>
       <div class="media-body">
-        <h4 class="media-heading"><%= result.name %></h4>
-        <p><%= result.artist %></p>
+        <h4 class="media-heading"><%= album.name %></h4>
+        <p><%= album.artist %></p>
         <% if params['p'] %>
             <p class="action">
-              <a href="/albums/new<%= position %>/<%= result['key'] %>" class="btn btn-primary btn-sm">Add this album <i class="glyphicon glyphicon-plus-sign"></i></a>
+                <% album_link = '/your_top_5/position/' + params['p'] + '/album/' + album['key'] + '/' %>
+                <%= link_to album_link, :class => 'btn btn-primary btn-sm', :method => :put do %>
+                    Add this album <i class="glyphicon glyphicon-plus-sign"></i>
+                <% end %>
             </p>
         <% else %>
             <ul class="list-inline position-links">
               <li>Add to: </li>
-              <% 1.upto 5 do |i| %>
-                  <li><a href="/albums/new/<%= i %>/<%= result['key'] %>" class="btn btn-primary btn-sm"><%= i %></a></li>
+              <%
+                1.upto 5 do |i|
+                album_link = '/your_top_5/position/' + i.to_s + '/album/' + album['key'] + '/'
+              %>
+                  <li>
+                    <%= link_to(i, album_link, class: 'btn btn-primary btn-sm', method: :put) %>
+                  </li>
               <% end %>
             </ul>
         <% end %>

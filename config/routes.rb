@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get 'search/:p', to: 'albums#search'
 
   resources :album_collections
+  put 'your_top_5/position/:p/album/:a/', to: 'album_collections#add_album'
   get 'your_top_5', to: 'album_collections#show'
 
   resources :users

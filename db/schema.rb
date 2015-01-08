@@ -11,42 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150104005811) do
+ActiveRecord::Schema.define(version: 20150108130309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "album_collections", force: true do |t|
-    t.string   "name"
-    t.string   "albums"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
+    t.string  "name"
+    t.integer "user_id"
   end
-
   add_index "album_collections", ["user_id"], name: "index_album_collections_on_user_id", using: :btree
 
   create_table "albums", force: true do |t|
     t.string   "name"
-    t.string   "band"
+    t.string   "artist"
     t.string   "image"
+    t.integer  "position"
+    t.integer  "album_collection_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "albumCollection_id"
-    t.integer  "position"
   end
-
-  add_index "albums", ["albumCollection_id"], name: "index_albums_on_albumCollection_id", using: :btree
+  add_index "albums", ["album_collection_id"], name: "index_albums_on_album_collection_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
     t.string   "password"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_digest"
   end
-
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end

@@ -12,7 +12,7 @@
   <% end %>
 
     <%= f.text_field :name, value: params[:n], type: 'hidden' %>
-    <%= f.text_field :band, value: params[:a], type: 'hidden' %>
+    <%= f.text_field :artist, value: params[:a], type: 'hidden' %>
     <%= f.text_field :image, value: params[:i], type: 'hidden' %>
     <%= f.number_field :position, value: params[:p], type: 'hidden' %>
     <%= f.submit "Add to Top 5", class: "btn btn-lg btn-primary" %>
