@@ -43,7 +43,11 @@ gem 'bcrypt', '~> 3.1.9'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Rdio API
 gem 'rdio_api', '~> 0.1.1'
+
+# Spotify API
+gem 'rspotify'
 
 gem 'rails_12factor', '~> 0.0.3', group: :production
 
