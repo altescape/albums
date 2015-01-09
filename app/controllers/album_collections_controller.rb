@@ -47,17 +47,6 @@ class AlbumCollectionsController < ApplicationController
     end
   end
 
-  def add_album
-    search = Search.new
-    result = search.get_album(params[:a])
-
-    @album = Album.new(name: result.name, artist: result.artist, image: result.icon, position: params[:p])
-    if @album.save
-      @album_collection = AlbumCollection.find_by(user_id: current_user.id)
-      render :show
-    end
-  end
-
   private
     def set_album_collection
       @album_collection = AlbumCollection.find_by(user_id: current_user.id)
