@@ -95,7 +95,9 @@ class AlbumsController < ApplicationController
 
     @album = Album.new
     position = params['p']
-    @albums = @album.search_albums(search_term)
+
+    @search = Search.new
+    @albums = @search.search_albums(search_term)
     render :search
   end
 
