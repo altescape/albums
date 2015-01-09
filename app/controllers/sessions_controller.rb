@@ -17,6 +17,5 @@ class SessionsController < ApplicationController
     log_out if logged_in?
     flash.now[:danger] = 'You have logged out'
     render 'new'
-    # redirect_to root_url
   end
 end
