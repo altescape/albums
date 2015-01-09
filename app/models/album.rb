@@ -11,8 +11,7 @@ class Album < ActiveRecord::Base
     {
         name: self.name,
         artist: self.artist,
-        image: self.image,
-        large_image: self.image.gsub('square-200', 'square-400'),
+        image: self.image.gsub('square-200', 'square-400'),
         position: self.position
         # @release_date = Date.strptime(@album.releaseDate.to_s, '%Y-%m-%d').year
     }

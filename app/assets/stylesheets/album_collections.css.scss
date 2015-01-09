@@ -41,12 +41,19 @@ body.top5 {
     height: $album-height * $album-rows;
 
     .album {
-      width: $album-width;
-      height: $album-height;
+      width: $album-width - 10;
+      height: $album-height - 10;
+
       float: left;
 
       position: relative;
       overflow: hidden;
+
+      padding: 8px;
+      box-shadow: 3px 3px 4px rgba(0,0,0,0.2);
+      background: lighten($albums-background-color, 15%);
+      margin: 5px;
+
 
       .functions {
         position: absolute;
@@ -106,6 +113,11 @@ body.top5 {
       }
 
       &:hover {cursor: move;}
+
+      &:nth-child(1) {
+        width: ($album-width * 2) - 10;
+        height: ($album-height * 2) - 10;
+      }
     }
 
     .ghost {
@@ -120,6 +132,7 @@ body.top5 {
   }
 
   .action {
+
     text-decoration: line-through;
     width: $album-width;
     height: $album-height;
@@ -139,6 +152,8 @@ body.top5 {
     -webkit-transition: all .15s linear;
     -moz-transition: all .15s linear;
     transition: all .15s linear;
+
+    display: none;
 
     &:hover {
       text-decoration: none;
@@ -164,10 +179,10 @@ body.top5 {
       border-radius: 50%;
     }
 
-    i:nth-child(1) { top: -10px; left: 80px; }
-    i:nth-child(2) { top: -10px; left: 280px; }
-    i:nth-child(3) { top: 190px; left: 80px; }
-    i:nth-child(4) { top: 190px; left: 280px; }
-    i:nth-child(5) { top: 390px; left: 80px; }
+    i:nth-child(1) { top: -10px; left: 180px; }
+    i:nth-child(2) { top: 390px; left: 80px; }
+    i:nth-child(3) { top: 390px; left: 280px; }
+    i:nth-child(4) { top: 590px; left: 80px; }
+    i:nth-child(5) { top: 590px; left: 280px; }
   }
 }

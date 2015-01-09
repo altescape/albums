@@ -1,6 +1,5 @@
 <div class="albums-container">
   <ul id="sortable" class="list-unstyled albums">
-    <li class="album">
       <% albums1 = @album_collection.albums.where(position: 1)
          album1 = albums1.last
 
@@ -13,6 +12,7 @@
            id1 = '/your_top_5/' + album1.id.to_s
          end
       %>
+    <li class="album" data-position="1">
       <img src="<%= image_url(image1) %>" width="100%" alt="<%= title1 %>">
 
       <div class="top-function functions">
@@ -26,7 +26,7 @@
           </div>
       <% end %>
     </li>
-    <li class="album">
+
       <% albums2 = @album_collection.albums.where(position: 2)
          album2 = albums2.last
 
@@ -39,6 +39,7 @@
            id2 = '/albums/' + album2.id.to_s
          end
       %>
+    <li class="album" data-position="2">
       <img src="<%= image_url(image2) %>" width="100%" alt="<%= title2 %>">
       <img src="<%= image_url('albums-placeholders-order-1.png') %>" width="100%">
 
@@ -53,7 +54,6 @@
           </div>
       <% end %>
     </li>
-    <li class="album">
       <% albums3 = @album_collection.albums.where(position: 3)
          album3 = albums3.last
 
@@ -66,6 +66,7 @@
            id3 = '/albums/' + album3.id.to_s
          end
       %>
+    <li class="album" data-position="3">
       <img src="<%= image_url(image3) %>" width="100%" alt="<%= title3 %>">
 
       <div class="top-function functions">
@@ -79,7 +80,7 @@
           </div>
       <% end %>
     </li>
-    <li class="album">
+
       <% albums4 = @album_collection.albums.where(position: 4)
          album4 = albums4.last
 
@@ -92,6 +93,7 @@
            id4 = '/albums/' + album4.id.to_s
          end
       %>
+    <li class="album" data-position="4">
       <img src="<%= image_url(image4) %>" width="100%" alt="<%= title4 %>">
 
       <div class="top-function functions">
@@ -105,7 +107,7 @@
           </div>
       <% end %>
     </li>
-    <li class="album">
+
       <% albums5 = @album_collection.albums.where(position: 5)
          album5 = albums5.last
 
@@ -118,6 +120,7 @@
            id5 = '/albums/' + album5.id.to_s
          end
       %>
+    <li class="album" data-position="5">
       <img src="<%= image_url(image5) %>" width="100%" alt="<%= title5 %>">
 
       <div class="top-function functions">
