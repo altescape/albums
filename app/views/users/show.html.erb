@@ -1,9 +1,5 @@
 <% provide(:title, 'User ' + @user.name + ' Top 5 Albums') %>
-
 <div class="container">
-
-  <p id="notice"><%= notice %></p>
-
   <div class="col-sm-8 col-sm-offset-2">
     <div class="col-sm-2 text-center">
       <p><%= gravatar_for @user %></p>
@@ -11,12 +7,10 @@
     </div>
     <div class="col-sm-10">
       <h2><%= @user.name %></h2>
-
-      <p><strong>Id:</strong> <%= @user.id %></p>
-
       <p><strong>Email:</strong> <%= @user.email %></p>
-
-      <p><strong>Albums:</strong> <%= link_to 'View albums', @user.album_collection %></p>
+      <% if notice  %>
+        <p id="notice" class="alert alert-success"><%= notice %></p>
+      <% end %>
     </div>
   </div>
 </div>
