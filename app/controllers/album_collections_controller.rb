@@ -1,29 +1,18 @@
 class AlbumCollectionsController < ApplicationController
   before_action :set_album_collection, only: [:show, :edit, :update, :destroy]
 
-  # GET /album_collections
-  # GET /album_collections.json
   def index
     @album_collections = AlbumCollection.all
   end
 
-  # GET /album_collections/1
-  # GET /album_collections/1.json
   def show
     @album_collection = AlbumCollection.find_by(user_id: current_user.id)
   end
 
-  # GET /album_collections/new
   def new
     @album_collection = AlbumCollection.new
   end
 
-  # GET /album_collections/1/edit
-  def edit
-  end
-
-  # POST /album_collections
-  # POST /album_collections.json
   def create
     @album_collection = AlbumCollection.new(album_collection_params)
 
@@ -38,8 +27,6 @@ class AlbumCollectionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /album_collections/1
-  # PATCH/PUT /album_collections/1.json
   def update
     respond_to do |format|
       if @album_collection.update(album_collection_params)
@@ -52,8 +39,6 @@ class AlbumCollectionsController < ApplicationController
     end
   end
 
-  # DELETE /album_collections/1
-  # DELETE /album_collections/1.json
   def destroy
     @album_collection.destroy
     respond_to do |format|
@@ -63,15 +48,14 @@ class AlbumCollectionsController < ApplicationController
   end
 
   def add_album
-    @album = Album.new
-    @album_details = @album.get_album(params['a'])
-    @name = @album_details.name
-    @artist = @album_details.artist
-    @image = @album_details.icon
-    @large_image = @album_details.icon.gsub('square-200', 'square-400')
-    @release_date = Date.strptime(@album_details.releaseDate.to_s, '%Y-%m-%d').year
-    @album_collection = AlbumCollection.find_by(user_id: current_user.id)
-    render :show
+    search = Search.new
+    result = search.get_album(params[:a])
+
+    @album = Album.new(name: result.name, artist: result.artist, image: result.icon, position: params[:p])
+    if @album.save
+      @album_collection = AlbumCollection.find_by(user_id: current_user.id)
+      render :show
+    end
   end
 
   private
@@ -80,7 +64,6 @@ class AlbumCollectionsController < ApplicationController
     end
 
     def album_collection_params
-      params['']
       params.require(:album_collection).permit(:user)
     end
 end

@@ -1,40 +1,21 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :destroy]
 
-  # GET /albums
-  # GET /albums.json
   def index
     @albums = Album.all
   end
 
-  # GET /albums/1
-  # GET /albums/1.json
-  def show
-    @album_collection = AlbumCollection.find_by(user_id: current_user.id)
-  end
-
-  # GET /albums/new
   def new
     @album = Album.new
-    @album_details = @album.get_album(params['k'])
-    @name = @album_details.name
-    @artist = @album_details.artist
-    @image = @album_details.icon
-    @large_image = @album_details.icon.gsub('square-200', 'square-400')
-    @release_date = Date.strptime(@album_details.releaseDate.to_s, '%Y-%m-%d').year
   end
 
-  # GET /albums/1/edit
-  def edit
-  end
-
-  # POST /albums
-  # POST /albums.json
   def create
 
-    # add album to users collection
+    search = Search.new
+    result = search.get_album(params[:a])
+
     @album_collection = AlbumCollection.find_by(user_id: current_user.id)
-    @album = @album_collection.albums.create(album_params)
+    @album = @album_collection.albums.create(name: result.name, artist: result.artist, image: result.icon, position: params[:p])
 
     respond_to do |format|
       if @album.save
@@ -47,8 +28,6 @@ class AlbumsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /albums/1
-  # PATCH/PUT /albums/1.json
   def update
     respond_to do |format|
       if @album.update(album_params)
@@ -61,23 +40,12 @@ class AlbumsController < ApplicationController
     end
   end
 
-  # DELETE /albums/1
-  # DELETE /albums/1.json
   def destroy
     @album.destroy
     respond_to do |format|
       format.html { redirect_to your_top_5_url, notice: 'Album was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  def search
-    @album = Album.new
-    position = params['p']
-
-    @search = Search.new
-    @albums = @search.search_albums(params[:s])
-    render :search
   end
 
   private
