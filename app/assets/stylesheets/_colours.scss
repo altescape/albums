@@ -20,6 +20,13 @@ a {
   }
 }
 
+.btn-primary {
+  &:visited {
+    background-color: lighten($albums-brand-color, 10%);
+    color: $albums-background-color;
+  }
+}
+
 .page-heading {
   padding: 1em 0;
 }
