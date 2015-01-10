@@ -1,3 +1,5 @@
+require 'rspotify'
+
 class Api
   def initialize
     @api = RdioApi.new(:consumer_key => ENV['CONSUMER_KEY'], :consumer_secret => ENV['CONSUMER_SECRET'])
@@ -19,6 +21,7 @@ class Api
   end
 
   def search(keywords, count=12)
-    @api.search(:query => keywords, :types => "album", :count => count, :extras => "-*, icon,artist,name,key").results
+    RSpotify::Album.search(keywords)
+    # @api.search(:query => keywords, :types => "album", :count => count, :extras => "-*, icon,artist,name,key").results
   end
 end
