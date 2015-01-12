@@ -1,18 +1,38 @@
 <ul><% @albums.each do |album| %>
-    <% tracks = album.tracks %>
     <li class="media list-unstyled">
       <div class="media-left">
           <%= image_tag(album.images.first['url'], width: '100px') %>
       </div>
       <div class="media-body">
         <h4 class="media-heading"><%= album.name %></h4>
-        <p class="text-muted"><%= album.release_date %></p>
+        <p class="text-muted"><%= album.artists.first.name %>, <%= album.release_date %></p>
         <h5>Tracks:</h5>
-        <ul class="list-unstyled">
+        <ol>
+          <% tracks = album.tracks %>
           <% tracks.each do |track| %>
               <li><%= track.name %></li>
           <% end %>
-        </ul>
+        </ol>
+        <% if params['p'] %>
+            <p class="action">
+              <% album_link = '/your_top_5/position/' + params['p'] + '/album/' + album.id + '/' %>
+              <%= link_to album_link, :class => 'btn btn-primary btn-sm', :method => :put do %>
+                  Add this album <i class="glyphicon glyphicon-plus-sign"></i>
+              <% end %>
+            </p>
+        <% else %>
+            <ul class="list-inline position-links">
+              <li>Add to: </li>
+              <%
+                 1.upto 5 do |i|
+                   album_link = '/your_top_5/position/' + i.to_s + '/album/' + album.id + '/'
+              %>
+                  <li>
+                    <%= link_to(i, album_link, class: 'btn btn-primary btn-sm', method: :put) %>
+                  </li>
+              <% end %>
+            </ul>
+        <% end %>
       </div>
       <hr>
     </li>

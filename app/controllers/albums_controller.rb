@@ -12,10 +12,11 @@ class AlbumsController < ApplicationController
   def create
 
     search = Search.new
-    result = search.get_album(params[:a])
+    album = search.get_album(params[:a])
 
     @album_collection = AlbumCollection.find_by(user_id: current_user.id)
-    @album = @album_collection.albums.create(name: result[:name], artist: result[:artist], image: result[:image], position: params[:p])
+
+    @album = @album_collection.albums.create(name: album[:name], artist: album[:name], image: album[:image], position: params[:p])
 
     respond_to do |format|
       if @album.save
