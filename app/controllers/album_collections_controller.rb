@@ -1,12 +1,11 @@
 class AlbumCollectionsController < ApplicationController
-  before_action :set_album_collection, only: [:show, :edit, :update, :destroy]
+  before_action :check_login, :set_album_collection, only: [:show, :edit, :update, :destroy]
 
   def index
     @album_collections = AlbumCollection.all
   end
 
   def show
-    @album_collection = AlbumCollection.find_by(user_id: current_user.id)
   end
 
   def new
