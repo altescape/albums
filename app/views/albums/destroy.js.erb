@@ -1,0 +1,5 @@
+var album = $('.album[data-id="<%= @album.id %>"]');
+
+album.children('img').hide('puff', 'fast', function(){
+    album.removeClass('has_album').addClass('no_album').removeAttr('data-id');
+});

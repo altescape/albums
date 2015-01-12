@@ -37,6 +37,11 @@ body.top5 {
     height: $album-height * $album-rows;
 
     .album {
+      background-image: image_url('albums-placeholders-generic.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-color: lighten($albums-background-color, 15%);
+
       width: $album-width - 10;
       height: $album-height - 10;
 
@@ -47,11 +52,20 @@ body.top5 {
 
       padding: 8px;
       box-shadow: 3px 3px 4px rgba(0,0,0,0.2);
-      background: lighten($albums-background-color, 15%);
       margin: 5px;
 
       transition: transform .15s ease-in-out;
 
+      &.no_album {
+        img {
+          display: none;
+        }
+      }
+      &.has_album {
+        img {
+          display: block;
+        }
+      }
 
       .functions {
         position: absolute;
@@ -116,6 +130,7 @@ body.top5 {
         width: ($album-width * 2) - 10;
         height: ($album-height * 2) - 10;
         transform: rotateZ(-1deg);
+        background-image: image_url('albums-placeholders-add.png');
       }
 
       &:nth-child(2) {

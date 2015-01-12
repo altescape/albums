@@ -46,6 +46,7 @@ class AlbumsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to your_top_5_url, notice: 'Album was successfully destroyed.' }
       format.json { head :no_content }
+      format.js {}
     end
   end
 

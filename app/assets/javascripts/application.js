@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require sortable
 //= require turbolinks
 //= require bootstrap-sprockets

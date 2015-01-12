@@ -1,0 +1,32 @@
+<% albums = @album_collection.albums.where(position: pos)
+   album = albums.last
+
+   if album.nil?
+     title = 'Add an album'
+     id = ''
+     html_id = ''
+   else
+     image = album.image
+     title = album.artist + ': ' + album.name
+     id = album.id.to_s
+     delete_url = '/your_top_5/' + id
+     html_id = 'id=album_' + id.to_s
+   end
+%>
+<li class="album <%= album.nil? ? 'no_album' : 'has_album'  %>" data-position="<%= pos %>" data-id="<%= id %>">
+  <%= image_tag(image, width: '100%', alt: title) if image %>
+
+  <div class="top-function functions">
+    <%= link_to "/search/#{pos}", :class => '' do %>
+        <span class="glyphicon glyphicon-search"></span>
+    <% end %>
+  </div>
+
+  <% unless album.nil? %>
+      <div class="bottom-function functions">
+        <%= link_to delete_url, :class => '', method: :delete, data: { confirm: "Are you sure?" }, remote: true do %>
+            <span class="glyphicon glyphicon-remove"></span>
+        <% end %>
+      </div>
+  <% end %>
+</li>

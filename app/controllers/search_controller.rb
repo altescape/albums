@@ -13,6 +13,9 @@ class SearchController < ApplicationController
     end
 
     @albums = @search.search_albums(search_param)
-    render :search
+
+    respond_to do |format|
+      format.html { render :search }
+    end
   end
 end
