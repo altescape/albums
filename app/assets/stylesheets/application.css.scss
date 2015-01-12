@@ -1,9 +1,12 @@
+@import "colours";
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-@import "colours";
+
 @import "scaffolds";
 @import "static_pages";
 @import "users";
 @import "album_collections";
 @import "albums";
+@import "search";

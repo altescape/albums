@@ -1,44 +1,7 @@
+$brand-primary: #9B9668;
+$brand-success: #5A7442;
+
 $albums-brand-color: #9B9668;
 $brand-primary: $albums-brand-color;
 $albums-background-color: #F0E7D0;
 $albums-header-color: #61694B;
-
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  color: $albums-header-color;
-  font-family: 'hotel-open';
-}
-
-a {
-  color: $albums-brand-color;
-
-  &:hover {
-    color: darken($albums-brand-color, 10%);
-  }
-
-  &:visited {
-    color: $albums-brand-color;
-  }
-}
-
-.btn-primary {
-  background-color: $albums-brand-color;
-  border-color: darken($albums-brand-color, 4%);
-  &:visited {
-    background-color: lighten($albums-brand-color, 10%);
-    color: $albums-background-color;
-  }
-}
-
-.page-heading {
-  padding: 1em 0;
-}
-
-hr {border-top: 1px solid darken($albums-background-color, 8%);}
-
-.position-links {
-  a.btn {
-    &:visited {
-      color: $albums-background-color;
-    }
-  }
-}

@@ -20,6 +20,17 @@ body {
 
 }
 
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  color: $albums-header-color;
+  font-family: 'hotel-open';
+}
+
+.page-heading {
+  padding: 1em 0;
+}
+
+hr {border-top: 1px solid darken($albums-background-color, 8%);}
+
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;

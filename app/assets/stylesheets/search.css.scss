@@ -1,0 +1,21 @@
+.btn-position {
+  a {
+    border: none;
+    border-radius: 50%;
+  }
+  &:nth-child(2) {
+    a {background-color: mix($brand-danger, $brand-success, 30%);}
+  }
+  &:nth-child(3) {
+    a {background-color: mix($brand-danger, $brand-success, 50%);}
+  }
+  &:nth-child(4) {
+    a {background-color: mix($brand-danger, $brand-success, 70%);}
+  }
+  &:nth-child(5) {
+    a {background-color: mix($brand-danger, $brand-success, 90%);}
+  }
+  &:nth-child(6) {
+    a {background-color: mix($brand-danger, $brand-success, 100%);}
+  }
+}

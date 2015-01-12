@@ -20,7 +20,7 @@
         <% if params['p'] %>
             <p class="action">
               <% album_link = '/your_top_5/position/' + params['p'] + '/album/' + album.id + '/' %>
-              <%= link_to album_link, :class => 'btn btn-primary btn-sm', :method => :put do %>
+              <%= link_to album_link, :class => 'btn btn-danger btn-sm', :method => :put do %>
                   Add this album <i class="glyphicon glyphicon-plus-sign"></i>
               <% end %>
             </p>
@@ -31,7 +31,7 @@
                  1.upto 5 do |i|
                    album_link = '/your_top_5/position/' + i.to_s + '/album/' + album.id + '/'
               %>
-                  <li>
+                  <li class="btn-position">
                     <%= link_to(i, album_link, class: 'btn btn-primary btn-sm', method: :put) %>
                   </li>
               <% end %>
