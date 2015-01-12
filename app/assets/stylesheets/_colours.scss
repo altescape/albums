@@ -21,6 +21,8 @@ a {
 }
 
 .btn-primary {
+  background-color: $albums-brand-color;
+  border-color: darken($albums-brand-color, 4%);
   &:visited {
     background-color: lighten($albums-brand-color, 10%);
     color: $albums-background-color;
