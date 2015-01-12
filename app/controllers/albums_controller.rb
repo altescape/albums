@@ -50,8 +50,11 @@ class AlbumsController < ApplicationController
     end
   end
 
-  def change_order
-
+  def sort
+    params[:order].each do |key,value|
+      Album.find(value[:id]).update_attribute(:position, value[:position])
+    end
+    render :nothing => true
   end
 
   private

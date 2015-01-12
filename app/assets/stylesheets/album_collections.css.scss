@@ -148,14 +148,15 @@ body.top5 {
       &:nth-child(5) {
         transform: rotateZ(3deg);
       }
+
+      &.ghost {
+        background: lighten($albums-background-color, 2%);
+        border: 1px dashed $brand-danger;
+
+        img {opacity: 0.4;}
+      }
     }
 
-    .ghost {
-      transform: rotateZ(0deg);
-      background-color: darken(whitesmoke, 5%);
-
-      img {opacity: 0.4;}
-    }
   }
 
   .action {

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
 
-  resources :users, :album_collections, :albums
+  resources :users, :album_collection
 
   resources :search, only: :search
   get 'search', to: 'search#search'
@@ -24,7 +24,10 @@ Rails.application.routes.draw do
   get 'your_top_5', to: 'album_collections#show'
 
   # Albums
-  get 'albums/new/:p/:k', to: 'albums#new'
   delete 'your_top_5/:id', to: 'albums#destroy'
+  get 'albums/new/:p/:k', to: 'albums#new'
+  resources :albums do
+    put :sort, on: :collection
+  end
 
 end
