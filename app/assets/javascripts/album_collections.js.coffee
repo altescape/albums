@@ -6,5 +6,17 @@ el = document.getElementById('sortable');
 
 if el
   sortable = Sortable.create(el, {
-    ghostClass: "ghost"
+    ghostClass: "ghost",
+
+    onStart: (evt) ->
+      console.log('onStart')
+      console.log(evt.item)
+      # console.log(evt.newIndex)
+      # console.log(evt.oldIndex)
+
+    onEnd: (evt) ->
+      console.log('onEnd')
+      console.log(evt.item)
+#      console.log(evt.newIndex)
+#      console.log(evt.oldIndex)
   })

@@ -50,6 +50,10 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def change_order
+
+  end
+
   private
     def set_album
       @album = Album.find(params[:id])
