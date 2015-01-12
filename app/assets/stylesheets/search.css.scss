@@ -1,21 +1,45 @@
-.btn-position {
-  a {
-    border: none;
-    border-radius: 50%;
-  }
-  &:nth-child(2) {
-    a {background-color: mix($brand-danger, $brand-success, 30%);}
-  }
-  &:nth-child(3) {
-    a {background-color: mix($brand-danger, $brand-success, 50%);}
-  }
-  &:nth-child(4) {
-    a {background-color: mix($brand-danger, $brand-success, 70%);}
-  }
-  &:nth-child(5) {
-    a {background-color: mix($brand-danger, $brand-success, 90%);}
-  }
-  &:nth-child(6) {
-    a {background-color: mix($brand-danger, $brand-success, 100%);}
+.position-links {
+  padding-left: 0;
+  list-style: none;
+
+  .btn-position {
+
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+    float: left;
+    line-height: 2;
+
+    a {
+      border: none;
+      border-radius: 0
+    }
+
+    @mixin gradient-button($func) {
+      a {
+        background-color: $func;
+        &:hover {
+          background-color: darken($func, 8%);
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      a {border-radius: 5px 0 0 5px}
+      @include gradient-button(mix($brand-danger, $brand-success, 100%));
+    }
+    &:nth-child(3) {
+      @include gradient-button(mix($brand-danger, $brand-success, 75%));
+    }
+    &:nth-child(4) {
+      @include gradient-button(mix($brand-danger, $brand-success, 50%));
+    }
+    &:nth-child(5) {
+      @include gradient-button(mix($brand-danger, $brand-success, 25%));
+    }
+    &:nth-child(6) {
+      a {border-radius: 0 5px 5px 0}
+      @include gradient-button(mix($brand-danger, $brand-success, 0%));
+    }
   }
 }
