@@ -6,13 +6,17 @@
       <div class="media-body">
         <h4 class="media-heading"><%= album.name %></h4>
         <p class="text-muted"><%= album.artists.first.name %>, <%= album.release_date %></p>
-        <h5>Tracks:</h5>
-        <ol>
-          <% tracks = album.tracks %>
-          <% tracks.each do |track| %>
-              <li><%= track.name %></li>
-          <% end %>
+
+        <h5><a href="#collapseTracks_<%= album.id %>" data-toggle="collapse">Tracks</a></h5>
+        <ol class="collapse"  id="collapseTracks_<%= album.id %>">
+        <% tracks = album.tracks %>
+        <% tracks.each do |track| %>
+            <li><%= track.name %></li>
+        <% end %>
         </ol>
+
+        <hr>
+
         <% if params['p'] %>
             <p class="action">
               <% album_link = '/your_top_5/position/' + params['p'] + '/album/' + album.id + '/' %>
