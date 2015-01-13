@@ -17,12 +17,19 @@
 
         <hr>
 
-        <% if params['p'] %>
+        <% if params[:p] %>
             <p class="action">
-              <% album_link = '/your_top_5/position/' + params['p'] + '/album/' + album.id + '/' %>
-              <%= link_to album_link, :class => 'btn btn-danger btn-sm', :method => :put do %>
-                  Add this album <i class="glyphicon glyphicon-plus-sign"></i>
+            <% if params[:id] %>
+                <% album_link = '/your_top_5/position/' + params[:p] + '/change/' + params[:id] + '/album/' + album.id + '/' %>
+                <%= link_to album_link, :class => 'btn btn-danger btn-sm', :method => :put do %>
+                    Add this album <i class="glyphicon glyphicon-plus-sign"></i>
+                <% end %>
+            <% else %>
+              <% album_link = '/your_top_5/position/' + params[:p] + '/album/' + album.id + '/' %>
+                  <%= link_to album_link, :class => 'btn btn-danger btn-sm', :method => :put do %>
+                      Add this album <i class="glyphicon glyphicon-plus-sign"></i>
               <% end %>
+            <% end %>
             </p>
         <% else %>
             <ul class="position-links">

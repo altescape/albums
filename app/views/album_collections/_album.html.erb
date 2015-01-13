@@ -17,8 +17,14 @@
   <%= image_tag(image, width: '100%', alt: title) if image %>
 
   <div class="top-function functions">
-    <%= link_to "/search/#{pos}", :class => '' do %>
-        <span class="glyphicon glyphicon-search"></span>
+    <% if album.nil?  %>
+        <%= link_to "/search/#{pos}", :class => '' do %>
+            <span class="glyphicon glyphicon-search"></span>
+        <% end %>
+    <% else %>
+        <%= link_to "/search/#{pos}/album/#{id}", :class => '' do %>
+            <span class="glyphicon glyphicon-search"></span>
+        <% end %>
     <% end %>
   </div>
 

@@ -10,13 +10,10 @@ class AlbumsController < ApplicationController
   end
 
   def create
+    @album = Album.new
 
-    search = Search.new
-    album = search.get_album(params[:a])
-
-    @album_collection = AlbumCollection.find_by(user_id: current_user.id)
-
-    @album = @album_collection.albums.create(name: album[:name], artist: album[:name], image: album[:image], position: params[:p])
+    @album_collection = @album.get_album_collection(current_user)
+    @album = @album_collection.albums.create(@album.find_album(params[:a], params[:p]))
 
     respond_to do |format|
       if @album.save
@@ -30,9 +27,12 @@ class AlbumsController < ApplicationController
   end
 
   def update
+    @album = Album.find(params[:id])
+    album_params = @album.find_album(params[:a], params[:p])
+
     respond_to do |format|
       if @album.update(album_params)
-        format.html { redirect_to @album, notice: 'Album was successfully updated.' }
+        format.html { redirect_to your_top_5_url, notice: 'Album was successfully updated.' }
         format.json { render :show, status: :ok, location: @album }
       else
         format.html { render :edit }
