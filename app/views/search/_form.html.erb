@@ -5,10 +5,10 @@
           <% if params[:search]
                value = params[:search][:keywords]
              end %>
-          <%= f.text_field :keywords, class: 'form-control input-lg', value: value,  placeholder: 'Search. . .' %>
+          <%= f.text_field :keywords, class: "form-control input-lg", value: value,  placeholder: "Enter artist or album name" %>
         </div>
         <div class="col-sm-4">
-          <%= f.submit value: 'Search', class: 'btn btn-primary btn-block btn-lg' %>
+          <%= button_tag "Search", data: { disable_with: "Wait..." }, class: 'btn btn-primary btn-block btn-lg search-button' %>
         </div>
       </div>
     </div>

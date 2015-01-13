@@ -1,17 +1,22 @@
-
+$('.search-form').submit(function() {
+    $('.results').html("<p class='text-center'>Searching...</p>");
+});
 
 var request = $.ajax({
     type: "POST",
     url: '/search',
     data: {search: {keywords: '<%= params[:search][:keywords] %>'}}
 });
+
 request.done(function (data) {
-    if (console && console.log) {
-        $('.results').html("<%= escape_javascript(render partial: 'search_result_spotify', locals: { albums: @albums } ) %>");
-    }
+    $('.report').html("<p class='h4 text-center'>Searching for <%= params[:search][:keywords] %>, <%= pluralize(@albums.count, 'album') %> found</p>")
+    $('.results').html("<%= escape_javascript(render partial: 'search_result_spotify', locals: { albums: @albums } ) %>");
 });
+
 request.fail(function (jqXHR, textStatus) {
-    if (console && console.log) {
-        console.log("Request failed: " + textStatus);
-    }
+    console.log("Request failed: " + textStatus);
+});
+
+request.always(function () {
+
 });
