@@ -1,12 +1,15 @@
-<form class="form-horizontal" action="" method="get" name="search">
-  <div class="col-md-6 col-md-offset-3">
-    <div class="form-group">
-      <div class="col-sm-8">
-        <input type="text" class="form-control input-lg" id="inputSearch" placeholder="<%= @search.get_placeholder %>" name="s">
-      </div>
-      <div class="col-sm-4">
-        <button type="submit" class="btn btn-primary btn-block btn-lg">Search</button>
+<%= form_for 'search', class: 'form-horizontal' do |f| %>
+    <div class="col-md-6 col-md-offset-3">
+      <div class="form-group">
+        <div class="col-sm-8">
+          <% if params[:search]
+               value = params[:search]['search']
+             end %>
+          <%= f.text_field :search, class: 'form-control input-lg', value: value,  placeholder: 'Search. . .' %>
+        </div>
+        <div class="col-sm-4">
+          <%= f.submit value: 'Search', class: 'btn btn-primary btn-block btn-lg' %>
+        </div>
       </div>
     </div>
-  </div>
-</form>
+<% end %>

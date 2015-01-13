@@ -8,8 +8,8 @@ class SearchController < ApplicationController
 
     @albums = []
 
-    if params[:s]
-      @albums = @search.search_albums(params[:s])
+    if params[:search]
+      @albums = @search.search_albums(params[:search]['search'])
     end
 
     respond_to do |format|

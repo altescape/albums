@@ -9,7 +9,9 @@
 
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
-        <p class="h4 text-center"><%= pluralize(@albums.count, 'album') %> found</p>
+        <% if params[:search] %>
+        <p class="h4 text-center">Searching for <%= params[:search]['search'] %>, <%= pluralize(@albums.count, 'album') %> found</p>
+        <% end %>
         <hr>
         <%= render 'search_result_spotify' %>
       </div>

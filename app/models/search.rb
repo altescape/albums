@@ -25,9 +25,7 @@ class Search
     self.placeholder = message
   end
 
-  def random_artist
-    ["Lenny Kravitz", "Jane's Addiction", "The Damned",
-     "Weezer", "London Philharmonic", "John Williams",
-     "City of Prague Philharmonic Orchestra", "The Movies", "Danger Mouse", "Dead Kennedys"].sample
+  def search
+
   end
 end

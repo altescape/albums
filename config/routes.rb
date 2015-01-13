@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :search, only: :search
   get 'search', to: 'search#search'
+  post 'search', to: 'search#search'
   get 'search/:p', to: 'search#search'
   get 'search/:p/album/:id', to: 'search#search'
 
