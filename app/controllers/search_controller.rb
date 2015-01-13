@@ -6,13 +6,11 @@ class SearchController < ApplicationController
 
     @search = Search.new
 
-    if params[:s].blank?
-      search_param = @search.random_artist
-    else
-      search_param = params[:s]
-    end
+    @albums = []
 
-    @albums = @search.search_albums(search_param)
+    if params[:s]
+      @albums = @search.search_albums(params[:s])
+    end
 
     respond_to do |format|
       format.html { render :search }

@@ -11,11 +11,10 @@ class Search
   end
 
   def search_albums(keywords = nil)
-    unless keywords
-      keywords = random_artist
+    if keywords
+      self.set_placeholder("Searching #{keywords}")
+      @api.search(keywords)
     end
-    self.set_placeholder("Searching #{keywords}")
-    @api.search(keywords)
   end
 
   def get_placeholder
