@@ -3,6 +3,7 @@
 
     <div class="row text-center">
       <h1 class="page-heading">Search for albums</h1>
+
       <%= render 'form' %>
 
     </div>
@@ -10,10 +11,10 @@
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
         <% if params[:search] %>
-        <p class="h4 text-center">Searching for <%= params[:search]['search'] %>, <%= pluralize(@albums.count, 'album') %> found</p>
+        <p class="h4 text-center">Searching for <%= params[:search][:keywords] %>, <%= pluralize(@albums.count, 'album') %> found</p>
         <% end %>
         <hr>
-        <%= render 'search_result_spotify' %>
+        <div class="results"></div>
       </div>
     </div>
 

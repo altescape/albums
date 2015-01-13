@@ -19,15 +19,9 @@ if el
 
         old_position = $('.album').eq(evt.oldIndex)
         new_position = $('.album').eq(evt.newIndex)
-        # console.log(old_position)
-        # console.log(evt.item)
-        # console.log(evt.newIndex)
-        # console.log(evt.oldIndex)
 
         $('.has_album').each (i) ->
           updated_order.push({ id: $(this).data('id'), position: i+1 })
-
-        console.log(updated_order)
 
         $.ajax({
           type: "PUT",

@@ -1,4 +1,4 @@
-<ul><% @albums.each do |album| %>
+<ul class="search_results"><% @albums.each do |album| %>
     <li class="media list-unstyled">
       <div class="media-left">
           <%= image_tag(album.images.first['url'], width: '100px') %>

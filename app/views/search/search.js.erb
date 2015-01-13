@@ -1,0 +1,17 @@
+
+
+var request = $.ajax({
+    type: "POST",
+    url: '/search',
+    data: {search: {keywords: '<%= params[:search][:keywords] %>'}}
+});
+request.done(function (data) {
+    if (console && console.log) {
+        $('.results').html("<%= escape_javascript(render partial: 'search_result_spotify', locals: { albums: @albums } ) %>");
+    }
+});
+request.fail(function (jqXHR, textStatus) {
+    if (console && console.log) {
+        console.log("Request failed: " + textStatus);
+    }
+});
