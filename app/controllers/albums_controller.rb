@@ -27,18 +27,28 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    @album = Album.find(params[:id])
-    album_params = @album.find_album(params[:a], params[:p])
 
-    respond_to do |format|
-      if @album.update(album_params)
-        format.html { redirect_to your_top_5_url, notice: 'Album was successfully updated.' }
-        format.json { render :show, status: :ok, location: @album }
-      else
-        format.html { render :edit }
-        format.json { render json: @album.errors, status: :unprocessable_entity }
+    # find current users album collection id
+    @album_collection = @album.get_album_collection(current_user)
+    @album = Album.find(params[:id])
+
+    if @album.album_collection_id == @album_collection.id
+
+      album_params = @album.find_album(params[:a], params[:p])
+
+      respond_to do |format|
+        if @album.update(album_params)
+          format.html { redirect_to your_top_5_url, notice: 'Album was successfully updated.' }
+          format.json { render :show, status: :ok, location: @album }
+        else
+          format.html { render :edit }
+          format.json { render json: @album.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      raise 'Error: unauthorised action'
     end
+
   end
 
   def destroy
