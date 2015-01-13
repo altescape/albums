@@ -191,26 +191,58 @@ body.top5 {
 
   .positions {
 
-    $positions-dims: 20px;
     i {
       position: absolute;
       display: block;
-      width: 40px;
-      height: 40px;
+      width: 30px;
+      height: 30px;
       text-align: center;
-      line-height: 40px;
-      background-color: $albums-header-color;
-      color: $albums-background-color;
+      line-height: 24px;
       font-style: normal;
-      font-size: 20px;
+      font-size: 16px;
       font-family: 'hotel-open';
       border-radius: 50%;
+      border-width: 3px;
+      border-style: solid;
+      background: white;
+      box-shadow: -2px 4px 0 -3px, -3px 5px 5px rgba(0,0,0,0.4), -1px 2px 0 1px rgba(0, 0, 0, 0.2) inset;
+      text-shadow: -2px 2px 0 rgba(0,0,0,0.3);
     }
 
-    i:nth-child(1) { top: -10px; left: 180px; }
-    i:nth-child(2) { top: 390px; left: 80px; }
-    i:nth-child(3) { top: 390px; left: 280px; }
-    i:nth-child(4) { top: 590px; left: 80px; }
-    i:nth-child(5) { top: 590px; left: 280px; }
+    @mixin gradient-positions($func) {
+      border-color: $func;
+      color: darken($func, 10%);
+    }
+
+    i:nth-child(1) {
+      width: 50px;
+      height: 50px;
+      line-height: 40px;
+      top: -10px;
+      left: 180px;
+      font-size: 38px;
+      border-width: 5px;
+      @include gradient-positions(mix($brand-danger, $brand-success, 100%));
+    }
+    i:nth-child(2) {
+      top: 400px;
+      left: 85px;
+      @include gradient-positions(mix($brand-danger, $brand-success, 75%));
+    }
+    i:nth-child(3) {
+      top: 400px;
+      left: 285px;
+      @include gradient-positions(mix($brand-danger, $brand-success, 50%));
+    }
+    i:nth-child(4) {
+      top: 600px;
+      left: 85px;
+      @include gradient-positions(mix($brand-danger, $brand-success, 25%));
+    }
+    i:nth-child(5) {
+      top: 600px;
+      left: 285px;
+      @include gradient-positions(mix($brand-danger, $brand-success, 0%));
+    }
   }
 }
