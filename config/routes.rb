@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post 'search', to: 'search#search'
   get 'search/:p', to: 'search#search'
   get 'search/:p/album/:id', to: 'search#search'
+  post 'search/:p/album/:id', to: 'search#search'
 
   # User
   get 'profile', to: 'users#show', as: :show
