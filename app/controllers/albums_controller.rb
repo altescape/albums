@@ -27,26 +27,17 @@ class AlbumsController < ApplicationController
   end
 
   def update
-
-    # find current users album collection id
-    @album_collection = @album.get_album_collection(current_user)
     @album = Album.find(params[:id])
+    album_params = @album.find_album(params[:a], params[:p])
 
-    if @album.album_collection_id == @album_collection.id
-
-      album_params = @album.find_album(params[:a], params[:p])
-
-      respond_to do |format|
-        if @album.update(album_params)
-          format.html { redirect_to your_top_5_url, notice: 'Album was successfully updated.' }
-          format.json { render :show, status: :ok, location: @album }
-        else
-          format.html { render :edit }
-          format.json { render json: @album.errors, status: :unprocessable_entity }
-        end
+    respond_to do |format|
+      if @album.update(album_params)
+        format.html { redirect_to your_top_5_url, notice: 'Album was successfully updated.' }
+        format.json { render :show, status: :ok, location: @album }
+      else
+        format.html { render :edit }
+        format.json { render json: @album.errors, status: :unprocessable_entity }
       end
-    else
-      raise 'Error: unauthorised action'
     end
 
   end
@@ -70,6 +61,16 @@ class AlbumsController < ApplicationController
   private
     def set_album
       @album = Album.find(params[:id])
+      is_authorised
+    end
+
+    def is_authorised
+      # Check current user is updating only their own album collection
+      # find current users album collection id
+      @album_collection = @album.get_album_collection(current_user)
+      if @album.album_collection_id != @album_collection.id
+        raise 'Error: unauthorised action'
+      end
     end
 
     def album_params
