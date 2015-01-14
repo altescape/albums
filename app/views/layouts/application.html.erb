@@ -27,13 +27,6 @@
     <div class="navbar-header">
       <% if logged_in? %>
         <%= link_to "Top 5 Albums", your_top_5_path, class: "navbar-brand" %>
-        <ul class="nav navbar-nav navbar-left">
-          <li>
-            <%= link_to search_path do %>
-                <i class="glyphicon glyphicon-search"></i> Add an album
-          <% end %>
-          </li>
-        </ul>
       <% else %>
         <%= link_to "Top 5 Albums", root_path, class: "navbar-brand" %>
       <% end %>
