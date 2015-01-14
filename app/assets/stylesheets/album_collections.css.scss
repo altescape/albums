@@ -67,63 +67,6 @@ body.top5 {
         }
       }
 
-      .functions {
-        position: absolute;
-        right: -30px;
-        width: 60px;
-        height: 60px;
-
-        -webkit-transition: all .08s ease-in-out;
-        -moz-transition: all .08s ease-in-out;
-        transition: all .08s ease-in-out;
-
-        &.top-function {
-          top: 0;
-
-          &:hover {right: 0;}
-
-          a {
-            top: 0;
-            background-color: $albums-brand-color;
-            color: white;
-
-            &:hover {
-              background-color: darken($albums-brand-color,10%);
-              cursor: pointer;
-            }
-          }
-        }
-
-        &.bottom-function {
-          bottom: 0;
-
-          &:hover {right: 0;}
-
-          a {
-            bottom: 0;
-            background-color: #B00100;
-            color: white;
-
-            &:hover {
-              background-color: darken(#B00100,10%);
-              cursor: pointer;
-            }
-          }
-        }
-
-        a {
-          width: 30px;
-          height: 30px;
-          background-color: white;
-          display: block;
-          text-align: center;
-          line-height: 30px;
-          float: left;
-          position: absolute;
-          right: 0;
-        }
-      }
-
       &:hover {cursor: move;}
 
       &:nth-child(1) {
@@ -159,90 +102,127 @@ body.top5 {
 
   }
 
-  .action {
+}
 
-    text-decoration: line-through;
-    width: $album-width;
-    height: $album-height;
+.album-positions {
 
+  i {
     position: absolute;
-    right: 0;
-    bottom: 0;
-
     display: block;
-    line-height: $album-height;
-    background-color: $albums-brand-color;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 24px;
+    font-style: normal;
+    font-size: 16px;
+    font-family: 'hotel-open';
+    border-radius: 50%;
+    border-width: 3px;
+    border-style: solid;
+    background: white;
+    box-shadow: -2px 4px 0 -3px, -3px 5px 5px rgba(0,0,0,0.4), -1px 2px 0 1px rgba(0, 0, 0, 0.2) inset;
+    text-shadow: -2px 2px 0 rgba(0,0,0,0.3);
+  }
 
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 24px;
+  @mixin gradient-positions($func) {
+    border-color: $func;
+    color: darken($func, 10%);
+  }
 
-    -webkit-transition: all .15s linear;
-    -moz-transition: all .15s linear;
-    transition: all .15s linear;
+  i:nth-child(1) {
+    width: 50px;
+    height: 50px;
+    line-height: 40px;
+    top: -10px;
+    left: 180px;
+    font-size: 38px;
+    border-width: 5px;
+    @include gradient-positions(mix($brand-danger, $brand-success, 100%));
+  }
+  i:nth-child(2) {
+    top: 400px;
+    left: 85px;
+    @include gradient-positions(mix($brand-danger, $brand-success, 75%));
+  }
+  i:nth-child(3) {
+    top: 400px;
+    left: 285px;
+    @include gradient-positions(mix($brand-danger, $brand-success, 50%));
+  }
+  i:nth-child(4) {
+    top: 600px;
+    left: 85px;
+    @include gradient-positions(mix($brand-danger, $brand-success, 25%));
+  }
+  i:nth-child(5) {
+    top: 600px;
+    left: 285px;
+    @include gradient-positions(mix($brand-danger, $brand-success, 0%));
+  }
+}
 
-    display: none;
+.album-functions {
+  position: absolute;
+  left: 45px;
+  bottom: -50px;
+
+  width: 100px;
+  height: 50px;
+
+  opacity: .1;
+
+  transition: transform .2s ease-in-out;
+
+  a {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    display: block;
+    text-align: center;
+    line-height: 50px;
+    float: left;
+  }
+
+  .search-function {
+    border-radius: 5px 0 0 5px;
+    background-color: $brand-primary;
+    color: $albums-background-color;
 
     &:hover {
-      text-decoration: none;
-      background-color: lighten($albums-brand-color, 4%);
+      background-color: darken($brand-primary, 10%);
     }
   }
 
-  .positions {
+  .delete-function {
+    border-radius: 0 5px 5px 0;
+    background-color: $brand-danger;
+    color: $albums-background-color;
 
-    i {
-      position: absolute;
-      display: block;
-      width: 30px;
-      height: 30px;
-      text-align: center;
-      line-height: 24px;
-      font-style: normal;
-      font-size: 16px;
-      font-family: 'hotel-open';
-      border-radius: 50%;
-      border-width: 3px;
-      border-style: solid;
-      background: white;
-      box-shadow: -2px 4px 0 -3px, -3px 5px 5px rgba(0,0,0,0.4), -1px 2px 0 1px rgba(0, 0, 0, 0.2) inset;
-      text-shadow: -2px 2px 0 rgba(0,0,0,0.3);
+    &:hover {
+      background-color: darken($brand-danger, 10%);
     }
+  }
+}
+.album-functions.has-one {
+  left: 65px;
+  .search-function {border-radius: 5px}
+}
+.album {
+  &:hover {
+    .album-functions {
+      opacity: 0.9;
+      transform: translate3d(0,-70px,0);
+      //bottom: 20px;
+    }
+  }
+}
+.album:nth-child(1) {
+  .album-functions {
+    left: 155px;
+  }
 
-    @mixin gradient-positions($func) {
-      border-color: $func;
-      color: darken($func, 10%);
-    }
-
-    i:nth-child(1) {
-      width: 50px;
-      height: 50px;
-      line-height: 40px;
-      top: -10px;
-      left: 180px;
-      font-size: 38px;
-      border-width: 5px;
-      @include gradient-positions(mix($brand-danger, $brand-success, 100%));
-    }
-    i:nth-child(2) {
-      top: 400px;
-      left: 85px;
-      @include gradient-positions(mix($brand-danger, $brand-success, 75%));
-    }
-    i:nth-child(3) {
-      top: 400px;
-      left: 285px;
-      @include gradient-positions(mix($brand-danger, $brand-success, 50%));
-    }
-    i:nth-child(4) {
-      top: 600px;
-      left: 85px;
-      @include gradient-positions(mix($brand-danger, $brand-success, 25%));
-    }
-    i:nth-child(5) {
-      top: 600px;
-      left: 285px;
-      @include gradient-positions(mix($brand-danger, $brand-success, 0%));
-    }
+  .album-functions.has-one {
+    left: 165px;
+    .search-function {border-radius: 5px}
   }
 }

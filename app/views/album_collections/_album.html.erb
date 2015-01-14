@@ -13,26 +13,22 @@
      html_id = 'id=album_' + id.to_s
    end
 %>
-<li class="album <%= album.nil? ? 'no_album' : 'has_album'  %>" data-position="<%= pos %>" data-id="<%= id %>">
+<li class="album album-<%= pos %> <%= album.nil? ? 'no_album' : 'has_album'  %>" data-position="<%= pos %>" data-id="<%= id %>">
   <%= image_tag(image, width: '100%', alt: title) if image %>
 
-  <div class="top-function functions">
+  <div class="album-functions <%= 'has-one' if album.nil?  %>">
     <% if album.nil?  %>
-        <%= link_to "/search/#{pos}", :class => '' do %>
+        <%= link_to "/search/#{pos}", :class => 'search-function' do %>
             <span class="glyphicon glyphicon-search"></span>
         <% end %>
     <% else %>
-        <%= link_to "/search/#{pos}/album/#{id}", :class => '' do %>
+        <%= link_to "/search/#{pos}/album/#{id}", :class => 'search-function' do %>
             <span class="glyphicon glyphicon-search"></span>
+        <% end %>
+        <%= link_to delete_url, :class => 'delete-function', method: :delete, data: { confirm: "Are you sure?" }, remote: true do %>
+            <span class="glyphicon glyphicon-remove"></span>
         <% end %>
     <% end %>
   </div>
 
-  <% unless album.nil? %>
-      <div class="bottom-function functions">
-        <%= link_to delete_url, :class => '', method: :delete, data: { confirm: "Are you sure?" }, remote: true do %>
-            <span class="glyphicon glyphicon-remove"></span>
-        <% end %>
-      </div>
-  <% end %>
 </li>

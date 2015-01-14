@@ -1,5 +1,18 @@
-var album = $('.album[data-id="<%= @album.id %>"]');
+var album = $('.album[data-id="<%= @album.id %>"]'),
+        album_position = album.data('position'),
+        album_img = album.children('img');
 
-album.children('img').hide('puff', 'fast', function(){
+// Hide image
+album_img.hide('puff', 'fast', function(){
     album.removeClass('has_album').addClass('no_album').removeAttr('data-id');
+    album_img.remove();
 });
+
+// change search button link
+album.find('.search-function').attr('href', '/search/'+album_position);
+
+// remove delete button
+album.find('.delete-function').remove();
+
+// add class has-one to album-functions
+album.find('.album-functions').addClass('has-one');
