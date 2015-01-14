@@ -25,18 +25,39 @@
 <nav class="navbar navbar-default navbar-static-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <%= link_to "Top 5 Albums", root_path, class: "navbar-brand" %>
+      <% if logged_in? %>
+        <%= link_to "Top 5 Albums", your_top_5_path, class: "navbar-brand" %>
+        <ul class="nav navbar-nav navbar-left">
+          <li>
+            <%= link_to search_path do %>
+                <i class="glyphicon glyphicon-search"></i> Add an album
+          <% end %>
+          </li>
+        </ul>
+      <% else %>
+        <%= link_to "Top 5 Albums", root_path, class: "navbar-brand" %>
+      <% end %>
     </div>
     <ul class="nav navbar-nav navbar-right">
       <% if logged_in? %>
-          <li><%= link_to "Add Album", search_path %></li>
-          <li><%= link_to "Your Top 5", your_top_5_path %></li>
-          <li><%= link_to "Log Out", logout_path %></li>
-          <li><%= link_to "Profile", show_path %></li>
+          <li>
+            <%= link_to logout_path, title: 'Log out'  do %>
+                <i class="glyphicon glyphicon-log-out"></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to show_path, title: 'View/Edit Profile' do %>
+                <i class="glyphicon glyphicon-cog"></i>
+            <% end %>
+          </li>
           <li class="header-gravatar"><%= link_to show_path do gravatar_for current_user end %></li>
       <% else %>
           <li><%= link_to "Register", register_path %></li>
-          <li><%= link_to "Log In", login_path %></li>
+          <li>
+            <%= link_to login_path do %>
+                Log In
+            <% end %>
+          </li>
       <% end %>
     </ul>
   </div>
