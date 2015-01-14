@@ -12,7 +12,6 @@ class CreateAll < ActiveRecord::Migration
 
     # Album Collections
     create_table :album_collections do |t|
-      t.string :name
       t.integer :user_id
     end
     add_index :album_collections, :user_id

@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 20141219164524) do
   enable_extension "plpgsql"
 
   create_table "album_collections", force: true do |t|
-    t.string  "name"
     t.integer "user_id"
   end
 
