@@ -1,13 +1,9 @@
 <div class="albums-container">
-  <ul id="sortable" class="list-unstyled albums">
-
+    <ul id="sortable" class="list-unstyled albums">
     <% 1.upto 5 do |i| %>
-
-    <%= render 'album', :pos => i %>
-
+        <%= render 'album', :pos => i %>
     <% end  %>
-
-  </ul>
+    </ul>
     <span class="album-positions">
       <i>1</i>
       <i>2</i>

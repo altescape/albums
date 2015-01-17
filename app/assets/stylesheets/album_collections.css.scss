@@ -1,6 +1,8 @@
-body.top5 {
-  background: image_url('background.png') 50% 50% transparent;
+.top5 body {
+  background: transparent image_url('blurred-background.jpg') center;
+  background-size: cover;
 }
+
 .form-album {
   max-width: 330px;
   padding: 15px;
@@ -25,8 +27,12 @@ body.top5 {
   $album-columns: 2;
   $album-rows: 3;
 
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+
   width: $album-width * $album-columns;
-  height: $album-height * $album-rows;
+  height: $album-height * $album-rows + 200;
 
   margin: 0 auto;
   position: relative;
@@ -34,7 +40,7 @@ body.top5 {
   #sortable {
 
     width: $album-width * $album-columns;
-    height: $album-height * $album-rows;
+    height: $album-height * $album-rows + 200;
 
     .album {
       background-image: image_url('albums-placeholders-generic.png');
@@ -42,19 +48,16 @@ body.top5 {
       background-size: contain;
       background-color: lighten($albums-background-color, 15%);
 
-      width: $album-width - 10;
-      height: $album-height - 10;
+      width: $album-width;
+      height: $album-height;
 
       float: left;
 
       position: relative;
       overflow: hidden;
 
-      padding: 8px;
-      box-shadow: 3px 3px 4px rgba(0,0,0,0.2);
-      margin: 5px;
-
-      transition: transform .15s ease-in-out;
+      padding: 0;
+      margin: 0;
 
       &.no_album {
         img {
@@ -67,36 +70,55 @@ body.top5 {
         }
       }
 
-      &:hover {cursor: move;}
+      &:hover {
+        cursor: move;
+      }
+
+      img {
+        height: $album-height;
+        width: $album-width;
+      }
 
       &:nth-child(1) {
-        width: ($album-width * 2) - 10;
-        height: ($album-height * 2) - 10;
-        transform: rotateZ(-1deg);
+        width: ($album-width * 2);
+        height: ($album-height * 2);
         background-image: image_url('albums-placeholders-add.png');
+
+        img {
+          height: $album-height * 2;
+          width: $album-width * 2;
+        }
+
+        .album-functions {
+          //          height: 40px;
+          //
+          //          a {
+          //            height: 40px;
+          //            width: 40px;
+          //            line-height: 40px;
+          //          }
+        }
       }
 
       &:nth-child(2) {
-        transform: rotateZ(-4deg);
       }
 
       &:nth-child(3) {
-        transform: rotateZ(2deg);
       }
 
       &:nth-child(4) {
-        transform: rotateZ(-2deg);
       }
 
       &:nth-child(5) {
-        transform: rotateZ(3deg);
       }
 
       &.ghost {
         background: lighten($albums-background-color, 2%);
         border: 1px dashed $brand-danger;
 
-        img {opacity: 0.4;}
+        img {
+          opacity: 0.4;
+        }
       }
     }
 
@@ -104,125 +126,213 @@ body.top5 {
 
 }
 
+//.has_album {
+//  .album-functions {
+//
+//    position: absolute;
+//    left: 0;
+//    top: 0;
+//    width: 100%;
+//    height: 20px;
+//    opacity: 0;
+//    transition: opacity .2s ease-in-out;
+//    background: rgba(0, 0, 0, 0.4);
+//
+//    a {
+//      width: 20px;
+//      height: 20px;
+//      display: block;
+//      text-align: center;
+//      line-height: 20px;
+//      float: right;
+//    }
+//
+//    .search-function {
+//      background-color: rgba($brand-primary, 0.5);
+//      color: $albums-background-color;
+//
+//      &:hover {
+//        background-color: darken($brand-primary, 10%);
+//      }
+//    }
+//
+//    .delete-function {
+//      background-color: rgba($brand-danger, 0.5);
+//      color: $albums-background-color;
+//
+//      &:hover {
+//        background-color: darken($brand-danger, 10%);
+//      }
+//    }
+//  }
+//  .album:nth-child(1) {
+//    .album-functions {
+//      border-radius: 14px 14px 0 0;
+//      .search-function {
+//        border-radius: 0 14px 0 0;
+//      }
+//    }
+//  }
+//}
+.album {
+  .album-functions {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+    transition-delay: 1s;
+
+    a.search-function, a.delete-function {
+      width: 60px;
+      height: 60px;
+      display: inline-block;
+      margin: 0 auto;
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      background: transparent;
+      line-height: 60px;
+      border-radius: 50%;
+      position: relative;
+
+      &:hover {
+        background-color: rgba(white, 0.2);
+      }
+
+      &:before, &:after {
+        content: "";
+        display: block;
+        width: 28px;
+        height: 2px;
+        background-color: rgba(255, 255, 255, 0.7);
+        position: absolute;
+        top: 28px;
+        left: 14px;
+        transition: opacity .4s ease-in-out;
+        transition-delay: 1s;
+      }
+      &:after {
+        transform: rotateZ(90deg);
+      }
+
+      .glyphicon {
+        display: none
+      }
+    }
+    a.delete-function {
+      &:hover {
+        background-color: rgba($brand-danger, 0.5)
+      }
+      &:after {
+        display: none
+      }
+    }
+  }
+
+  &:nth-child(1) {
+    .album-functions {
+      top: 100px;
+    }
+    &.has_album .album-functions {
+      top: 180px;
+    }
+  }
+
+  &.has_album {
+    .album-functions {
+      top: 70px;
+    }
+    &:hover {
+      img {
+        transition: all 2s ease-in-out;
+        opacity: .75;
+        filter: blur(2px);
+      }
+    }
+  }
+
+  &.no_album {
+    .album-functions {
+      opacity: .5
+    }
+  }
+}
+
+.albums-container {
+  &:hover {
+    .album-functions {
+      opacity: 1;
+      transition: opacity .3s ease-in-out;
+      transition-delay: 0s;
+    }
+
+    .album.has_album {
+      background: black !important;
+      img {
+        transition: all .5s ease-in-out;
+        opacity: .9;
+      }
+    }
+  }
+}
+
 .album-positions {
+
+  opacity: 0;
+  transition: opacity .2s ease-in-out;
 
   i {
     position: absolute;
     display: block;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     text-align: center;
-    line-height: 24px;
+    line-height: 20px;
+    font-weight: bold;
     font-style: normal;
-    font-size: 16px;
-    font-family: 'hotel-open';
-    border-radius: 50%;
-    border-width: 3px;
-    border-style: solid;
-    background: white;
-    box-shadow: -2px 4px 0 -3px, -3px 5px 5px rgba(0,0,0,0.4), -1px 2px 0 1px rgba(0, 0, 0, 0.2) inset;
-    text-shadow: -2px 2px 0 rgba(0,0,0,0.3);
-  }
-
-  @mixin gradient-positions($func) {
-    border-color: $func;
-    color: darken($func, 10%);
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
   }
 
   i:nth-child(1) {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     line-height: 40px;
-    top: -10px;
+    top: 40px;
     left: 180px;
-    font-size: 38px;
-    border-width: 5px;
-    @include gradient-positions(mix($brand-danger, $brand-success, 100%));
+    font-size: 28px;
   }
   i:nth-child(2) {
-    top: 400px;
-    left: 85px;
-    @include gradient-positions(mix($brand-danger, $brand-success, 75%));
+    top: 435px;
+    left: 90px;
   }
   i:nth-child(3) {
-    top: 400px;
-    left: 285px;
-    @include gradient-positions(mix($brand-danger, $brand-success, 50%));
+    top: 435px;
+    left: 290px;
   }
   i:nth-child(4) {
-    top: 600px;
-    left: 85px;
-    @include gradient-positions(mix($brand-danger, $brand-success, 25%));
+    top: 635px;
+    left: 90px;
   }
   i:nth-child(5) {
-    top: 600px;
-    left: 285px;
-    @include gradient-positions(mix($brand-danger, $brand-success, 0%));
+    top: 635px;
+    left: 290px;
   }
 }
 
-.album-functions {
-  position: absolute;
-  left: 45px;
-  bottom: -50px;
-
-  width: 100px;
-  height: 50px;
-
-  opacity: .1;
-
-  transition: transform .2s ease-in-out;
-
-  a {
-    width: 50px;
-    height: 50px;
-    background-color: white;
-    display: block;
-    text-align: center;
-    line-height: 50px;
-    float: left;
-  }
-
-  .search-function {
-    border-radius: 5px 0 0 5px;
-    background-color: $brand-primary;
-    color: $albums-background-color;
-
-    &:hover {
-      background-color: darken($brand-primary, 10%);
-    }
-  }
-
-  .delete-function {
-    border-radius: 0 5px 5px 0;
-    background-color: $brand-danger;
-    color: $albums-background-color;
-
-    &:hover {
-      background-color: darken($brand-danger, 10%);
-    }
-  }
-}
-.album-functions.has-one {
-  left: 70px;
-  .search-function {border-radius: 5px}
-}
-.album {
+.albums-container {
   &:hover {
     .album-functions {
-      opacity: 0.9;
-      transform: translate3d(0,-70px,0);
-      //bottom: 20px;
+      opacity: 0.25;
+    }
+    .album-positions {
+      opacity: 0.75;
     }
   }
-}
-.album:nth-child(1) {
-  .album-functions {
-    left: 155px;
-  }
-
-  .album-functions.has-one {
-    left: 170px;
-    .search-function {border-radius: 5px}
+  .album:hover {
+    .album-functions {
+      opacity: 1;
+    }
   }
 }

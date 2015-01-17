@@ -1,7 +1,7 @@
-html, body.title-screen, .wrap {
+.title-screen, .wrap, body {
   height: 100%;
 }
-body.title-screen {
+.title-screen body {
   background: image_url('background-title-page.png') 50% 50% $albums-brand-color;
 
 
