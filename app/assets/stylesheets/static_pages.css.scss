@@ -1,9 +1,8 @@
-.title-screen, .wrap, body {
+.html, .wrap, body {
   height: 100%;
 }
-.title-screen body {
+body.title-screen {
   background: image_url('background-title-page.png') 50% 50% $albums-brand-color;
-
 
   .navbar-static-top {display: none;}
 }
