@@ -245,7 +245,6 @@
     }
     &:hover {
       img {
-        transition: all 2s ease-in-out;
         opacity: .75;
         filter: blur(2px);
       }
@@ -270,7 +269,6 @@
     .album.has_album {
       background: black !important;
       img {
-        transition: all .5s ease-in-out;
         opacity: .9;
       }
     }
