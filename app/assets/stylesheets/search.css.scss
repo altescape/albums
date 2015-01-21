@@ -1,45 +1,66 @@
-.position-links {
-  padding-left: 0;
-  list-style: none;
+body.have-results {
+  overflow: auto;
+}
 
-  .btn-position {
+input#search_keywords {
+  background-color: #ececec;
+  border: none;
+  box-shadow: 10px 10px 10px rgba(150, 195, 242, 0), -10px 10px 10px rgba(150, 195, 242, 0), 10px -10px 10px rgba(150, 195, 242, 0), -10px -10px 10px rgba(150, 195, 242, 0);
+  transition: box-shadow .2s ease-in-out;
+}
 
-    padding-left: 0;
-    padding-right: 0;
-    margin: 0;
-    float: left;
-    line-height: 2;
+input#search_keywords:focus {
+  outline: 0;
+  border: none;
+  box-shadow: 3px 3px 0 $gray-lighter,
+  -3px 3px 0 $gray-lighter,
+  3px -3px 0 $gray-lighter,
+  -3px -3px 0 $gray-lighter;
+}
 
-    a {
-      border: none;
-      border-radius: 0
-    }
+.parallax {
+  perspective: 100px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 0;
+  bottom: 0;
+  margin-left: -1500px;
+}
 
-    @mixin gradient-button($func) {
-      a {
-        background-color: $func;
-        &:hover {
-          background-color: darken($func, 8%);
-        }
-      }
-    }
+.parallax__layer{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 
-    &:nth-child(2) {
-      a {border-radius: 5px 0 0 5px}
-      @include gradient-button(mix($brand-danger, $brand-success, 100%));
-    }
-    &:nth-child(3) {
-      @include gradient-button(mix($brand-danger, $brand-success, 75%));
-    }
-    &:nth-child(4) {
-      @include gradient-button(mix($brand-danger, $brand-success, 50%));
-    }
-    &:nth-child(5) {
-      @include gradient-button(mix($brand-danger, $brand-success, 25%));
-    }
-    &:nth-child(6) {
-      a {border-radius: 0 5px 5px 0}
-      @include gradient-button(mix($brand-danger, $brand-success, 0%));
-    }
+  img{
+    display: block;
+    position: absolute;
+    bottom: 0;
   }
 }
+
+.parallax__cover{
+  background: #2D112B;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 2000px;
+  z-index: 2;
+}
+
+$parallax__layers: 7;
+
+@for $i from 0 through $parallax__layers {
+  $x: ($parallax__layers - $i) / 2;
+  .parallax__layer__#{$i}{
+    transform: translateZ(-100 * $x#{px}) scale($x + 1);
+  }
+}
+

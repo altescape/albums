@@ -1,8 +1,5 @@
-.html, .wrap, body {
-  height: 100%;
-}
 body.title-screen {
-  background: image_url('background-title-page.png') 50% 50% $albums-brand-color;
+  background: black;
 
   .navbar-static-top {display: none;}
 }
@@ -31,27 +28,13 @@ body.title-screen {
 
 .brand {
   font-size: 100px;
-  color: $albums-brand-color;
   font-weight: normal;
   width: 150px;
-  height: 210px;
-  margin: 70px auto 30px;
+  height: 150px;
+  margin: 70px auto 15px;
   position: relative;
   zoom: 1.5;
-
-  &:before {
-    content: "";
-    display: block;
-    width: 150px;
-    height: 150px;
-    background: image_url('background.png') 50% 50% $albums-background-color;
-    position: absolute;
-    z-index: -1;
-    transform: rotate(45deg);
-    top: -15px;
-    left: 0;
-    box-shadow: 0 0 7px rgba(79, 71, 47, 1) inset, 0 0 26px rgba(64%, 58%, 40%, .3) inset;
-  }
+  color: $albums-background-color;
 
   span {
     display: block;
@@ -60,6 +43,7 @@ body.title-screen {
     left: 0;
     text-align: center;
     right: 0;
+    font-weight: bold;
   }
 
   span:nth-child(1) {
@@ -71,9 +55,7 @@ body.title-screen {
   }
   span:nth-child(3) {
     font-size: 32px;
-    color: $albums-background-color;
-    bottom: 0;
-    top: auto;
+    top: 115px;
   }
 
   &.inverse {
@@ -89,4 +71,40 @@ body.title-screen {
   }
 
   &.small {zoom: .5}
+}
+
+.brand-action {
+  position: relative;
+  .btn {
+    border: 2px solid $albums-background-color;
+    background-color: transparent;
+    color: $albums-background-color;
+
+    &:hover {
+      background-color: rgba($albums-background-color, 0.2);;
+    }
+  }
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: -200px;
+  bottom: 0;
+  background-color: black;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      float: left;
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+      opacity: .2;
+    }
+  }
 }
